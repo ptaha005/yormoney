@@ -1,0 +1,176 @@
+<html>
+	<head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <meta charset="utf-8">
+        <title>Y&ouml;r - Personal Information</title>
+		<link rel="stylesheet" type="text/css" href="css/style.css">
+        <link rel="stylesheet" type="text/css" href="css/selectbox.css">
+
+        <script src="app/lib/datatable/jquery.js"></script>
+        <script src="app/lib/jquery.selectbox.js"></script>
+        <script src="app/lib/form-elements.js"></script>
+        <script>
+            (function($) {
+                $(function() {
+
+                    $('select').selectbox();
+
+                    $('#add').click(function(e) {
+                        $(this).parents('div.section').append('<br /><br /><select><option>-- Выберите --</option><option>Пункт 1</option><option>Пункт 2</option><option>Пункт 3</option><option>Пункт 4</option><option>Пункт 5</option></select>');
+                        $('select').selectbox();
+                        e.preventDefault();
+                    })
+
+                    $('#add2').click(function(e) {
+                        var options = '';
+                        for (i = 1; i <= 5; i++) {
+                            options += '<option>Option ' + i + '</option>';
+                        }
+                        $(this).parents('div.section').find('select').each(function() {
+                            $(this).append(options);
+                        })
+                        $('select').trigger('refresh');
+                        e.preventDefault();
+                    })
+
+                    $('#che').click(function(e) {
+                        $(this).parents('div.section').find('option:nth-child(5)').attr('selected', true);
+                        $('select').trigger('refresh');
+                        e.preventDefault();
+                    })
+
+                })
+            })(jQuery)
+        </script>
+	</head>
+	<body>
+		<div class="bckg_page">
+            <div id="header">
+                <div id="logo"><a href="#"></a></div>
+                <div id="exit"><a class="exit" href="#"></a></div>
+            </div>
+            <div id="content" class="start_up">
+                <div class="title_form"><span class="title">Y&ouml;r - Personal Information</span></div>
+                <div id="left_content_register">
+                    <div class="title_left_content">
+                        <span class="image"></span>
+                        <span class="title_left_main start_title_main">Start Up Wizard</span>
+                        <span class="title_left_bottom">Personal Information</span>
+                    </div>
+                    <div id="form_registration">
+                        <form action="" method="" id="reg_form">
+                            <div class="left_form">
+                                <p class="personal_info"><strong>Enter the details for All members of your immediate family.</strong></p>
+                                <div class="inputs">
+                                    <label for="fname" class="">First name</label>
+                                    <input id="fname" type="text" value="" class="input_field"/>
+                                </div>
+                                <div class="inputs">
+                                    <label for="lname" class="">Last name</label>
+                                    <input id="lname" type="text" value="" class="input_field"/>
+                                </div>
+                                <div class="inputs">
+                                    <label for="date" class="">Date of birth</label>
+                                    <input type="text" placeholder="DD" id="date" class="input_norm date">
+                                    <input type="text" placeholder="MM" class="input_norm date">
+                                    <input type="text" placeholder="YYYY" class="input_norm date_year">
+                                </div>
+                                <div class="inputs">
+                                    <label for="email" class="">Email</label>
+                                    <input id="email" type="text" value="" class="input_field"/>
+                                </div>
+                                <div class="inputs">
+                                    <label for="occup" class="">Occupation</label>
+                                    <input id="occup" type="text" value="" class="input_field"/>
+                                </div>
+                                <div class="inputs info">
+                                    <a href="#"><img src="img/info.png"/></a>
+                                    <input type="checkbox" class="styled">
+                                    <span>Account holder</span>
+                                </div>
+                                <div class="inputs width215">
+                                    <label class="">Relationship</label>
+                                    <select class="selects">
+                                        <option>Please select...</option>
+                                        <option>345ytgv</option>
+                                        <option>fhbj.</option>
+                                        <option>tyujbtu.</option>
+                                    </select>
+                                </div>
+                                <div class="inputs">
+                                    <input type="button" value="Click to add another member" class="butt_add"/>
+                                </div>
+                            </div>
+                            <div class="right_form">
+                                <p class="personal_info"><strong>Only when all members have been added, click 'I'm done! on the right'</strong></p>
+                                <div class="textarea">
+                                    <div class="members">
+                                        <p class="member"><strong>Members added</strong></p>
+                                        <p><span class="left_names">Name</span><span>Pauline Dolphine</span></p>
+                                        <p><span class="left_names">Date of Birth</span><span>01/01/1978</span></p>
+                                        <p><span class="left_names">Relationship</span><span>Wife</span></p>
+                                        <p><span class="left_names">Acoount holder</span><span>Yes</span></p>
+                                        <div class="editdel">
+                                            <a href="#" class="butt edit">Edit</a>
+                                            <a href="#" class="butt delete">Delete</a>
+                                        </div>
+                                    </div>
+                                    <div class="members">
+                                        <p><span class="left_names">Name</span><span>Pauline Dolphine</span></p>
+                                        <p><span class="left_names">Date of Birth</span><span>01/01/1978</span></p>
+                                        <p><span class="left_names">Relationship</span><span>Wife</span></p>
+                                        <p><span class="left_names">Acoount holder</span><span>Yes</span></p>
+                                        <div class="editdel">
+                                            <a href="#" class="butt edit">Edit</a>
+                                            <a href="#" class="butt delete">Delete</a>
+                                        </div>
+                                    </div>
+                                    <div class="members">
+                                        <p><span class="left_names">Name</span><span>Pauline Dolphine</span></p>
+                                        <p><span class="left_names">Date of Birth</span><span>01/01/1978</span></p>
+                                        <p><span class="left_names">Relationship</span><span>Wife</span></p>
+                                        <p><span class="left_names">Acoount holder</span><span>Yes</span></p>
+                                        <div class="editdel">
+                                            <a href="#" class="butt edit">Edit</a>
+                                            <a href="#" class="butt delete">Delete</a>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="inputs">
+                                    <input type="button" value="I'm done!" class="butt_done"/>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+                <div id="right_content_register">
+                    <div class="title_video_text_right_content">
+                        <span class="title_right_main start_wiz">Registered account holder</span>
+                        <div class="block_title_text_right">
+                            <span class="title_block per_inf_t">Name</span>
+                            <span class="text_block per_inf_txt">Paul Dolphin</span>
+                        </div>
+                        <div class="block_title_text_right">
+                            <span class="title_block per_inf_t">Address</span>
+                            <span class="text_block per_inf_txt">44 Any Road Randomsville Countyshire PR1 2AB</span>
+                        </div>
+                        <div class="block_title_text_right">
+                            <span class="title_block per_inf_t">Telephone</span>
+                            <span class="text_block per_inf_txt">01234 567 890</span>
+                        </div>
+                        <div class="block_title_text_right">
+                            <span class="title_block per_inf_t">Email</span>
+                            <span class="text_block per_inf_txt">paul@yourisp.co.uk</span>
+                        </div>
+                        <div class="video_youtube">
+                            <span class="title_right_main">Help Video</span>
+                            <div class="video"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div id="footer">
+            </div>
+		</div>
+	</body>
+</html>

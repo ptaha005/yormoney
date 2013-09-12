@@ -1,0 +1,1 @@
+define(["knockout","jquery","text!./../../templates/ProductInfoTabs/Сompare.html"],function(e,t,n){return function(t){var r=this;r.compareSave=e.observableArray(t.compareSave),r.template=n}})

@@ -1,0 +1,1 @@
+define(["knockout","jquery","text!./../templates/Results.html"],function(e,t,n){return function(){var e=this;e.template=n}})

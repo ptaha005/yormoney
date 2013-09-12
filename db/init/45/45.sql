@@ -1,0 +1,1 @@
+ALTER TABLE user MODIFY activation_code varchar(25) NOT NULL;

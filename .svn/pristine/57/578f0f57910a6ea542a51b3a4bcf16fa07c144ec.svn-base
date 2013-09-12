@@ -1,0 +1,1 @@
+define(["jquery","knockout","./viewModels/Notes"],function(e,t,n){return{Notes:n}})

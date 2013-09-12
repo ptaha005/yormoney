@@ -1,0 +1,35 @@
+package com.codexsoft.yormoney.controller;
+
+import com.codexsoft.yormoney.AbstractContextControllerTests;
+import org.apache.log4j.Logger;
+import org.junit.Test;
+import org.junit.runner.RunWith;
+import org.springframework.http.MediaType;
+import org.springframework.security.core.context.SecurityContextHolder;
+import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
+import org.springframework.test.context.transaction.TransactionConfiguration;
+import org.springframework.test.web.servlet.ResultActions;
+
+import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
+import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
+import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.content;
+import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
+
+@RunWith(SpringJUnit4ClassRunner.class)
+@TransactionConfiguration
+public class UserControllerTest extends AbstractContextControllerTests {
+
+    private final Logger log = Logger.getLogger(UserControllerTest.class);
+
+    @Test
+    public void signin() throws Exception{
+        SecurityContextHolder.clearContext();
+        log.info("Class UserController, method - /user/signin POST, testing");
+        String content = "{\"username\" : \"" + username + "\", \"password\" : \"" + password + "\"}";
+
+        ResultActions ra = this.mockMvc.perform(post("/user/signin").content(content).contentType(MediaType.APPLICATION_JSON));
+
+        ra.andExpect(status().isOk());
+        ra.andExpect(content().contentType(MediaType.APPLICATION_JSON));
+    }
+}

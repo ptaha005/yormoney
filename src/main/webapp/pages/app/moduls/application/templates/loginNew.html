@@ -1,0 +1,42 @@
+
+    <div class="">
+        <div class="login_page " >
+            <div class="logo">
+                <a href="#"><img src="/pages/img/logo_login.png" alt="logo"/></a>
+            </div>
+
+            <form class="login_form">
+                <div class="names">
+                    <label for="uname" class="label">Yor Username</label>
+                    <input type="text" data-bind="value:userName" value="" id="uname" class="input_field"/>
+                </div>
+
+                <div class="names">
+                    <label for="name" class="label">Yor Password</label>
+                    <input type="text" data-bind="value:password,valueUpdate:'afterkeydown',executeOnEnter : login"  value="" id="name" class="input_field"/>
+                </div>
+
+                <div class="done_btn sub reg_login "><a href="#/" data-bind="click:login">Login</a>
+                </div>
+            </form>
+            <div style="height : 30px">
+                <p  style="display:inline-block; marning: 0 auto; width : 315px; color : red" data-bind="text : error, visible : error().length > 0"></p>
+            </div>
+            <div class="forgot">
+                <div class="forg_uname">
+                    <a href="#/registration1" class="done_btn sub reg_forg">Registration</a>
+                </div>
+                <div class="forg_pass">
+                    <a href="#/forgot/password" class="sub reg_forg">Foprgot your password</a>
+                </div>
+            </div>
+
+            <div class="social">
+                <a href="#" class=""><img src="/pages/img/facebook.png" alt="facebook"></a>
+                <a href="#" class="icons"><img src="/pages/img/tweet.png" alt="facebook"></a>
+                <a href="#" class="icons"><img src="/pages/img/inn.png" alt="facebook"></a>
+                <a href="#" class="icons"><img src="/pages/img/youtube.png" alt="facebook"></a>
+            </div>
+
+        </div>
+    </div>

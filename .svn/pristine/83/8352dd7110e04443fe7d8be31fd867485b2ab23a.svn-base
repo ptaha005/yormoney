@@ -1,0 +1,1 @@
+ALTER TABLE user MODIFY dateOFBirth Date;

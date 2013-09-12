@@ -1,0 +1,491 @@
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta charset="utf-8">
+    <title>Y&ouml;r  - Income</title>
+    <link rel="stylesheet" type="text/css" href="css/style.css">
+    <link rel="stylesheet" type="text/css" href="css/selectbox.css">
+    <style type="text/css" title="currentStyle">
+        @import "app/lib/datatable/demo_page.css";
+        @import "app/lib/datatable/demo_table.css";
+    </style>
+    <style>
+
+    </style>
+    <script type="text/javascript" language="javascript" src="app/lib/datatable/jquery.js"></script>
+    <script type="text/javascript" language="javascript" src="app/lib/datatable/jquery.dataTables.js"></script>
+    <script src="app/lib/jquery.selectbox.js"></script>
+    <script src="app/lib/form-elements.js"></script>
+    <script type="text/javascript" charset="utf-8">
+        $(document).ready(function() {
+            $('#example').dataTable( {
+                "sScrollY": "271px",
+                "bPaginate": false,
+                "bScrollCollapse": true
+            } );
+        } );
+    </script>
+    <script>
+        (function($) {
+            $(function() {
+
+                $('select').selectbox();
+
+                $('#add').click(function(e) {
+                    $(this).parents('div.section').append('<br /><br /><select><option>-- Выберите --</option><option>Пункт 1</option><option>Пункт 2</option><option>Пункт 3</option><option>Пункт 4</option><option>Пункт 5</option></select>');
+                    $('select').selectbox();
+                    e.preventDefault();
+                })
+
+                $('#add2').click(function(e) {
+                    var options = '';
+                    for (i = 1; i <= 5; i++) {
+                        options += '<option>Option ' + i + '</option>';
+                    }
+                    $(this).parents('div.section').find('select').each(function() {
+                        $(this).append(options);
+                    })
+                    $('select').trigger('refresh');
+                    e.preventDefault();
+                })
+
+                $('#che').click(function(e) {
+                    $(this).parents('div.section').find('option:nth-child(5)').attr('selected', true);
+                    $('select').trigger('refresh');
+                    e.preventDefault();
+                })
+
+            })
+        })(jQuery)
+    </script>
+</head>
+<body>
+<div class="bckg_page">
+<div id="header">
+    <div id="logo"><a href="#"></a></div>
+    <div id="exit"><a class="exit" href="#"></a></div>
+</div>
+<div id="content" class="registr_page">
+<div class="title_form"><span class="title">Y&ouml;r - Income</span></div>
+<div class="bckgr_full">
+<div class="income_page">
+<div class="income_bckgr">
+    <div class="income_top">
+        <span class="image"></span>
+        <div class="inline title_text">
+            <p class="title">Start Up Wizard</p>
+            <p class="under_title">Income</p>
+        </div>
+    </div>
+    <div class="inputs button fright">
+        <input type="submit" class="button_inp" value="Add another income type" />
+    </div>
+</div>
+<div style="width: 900px">
+<table cellpadding="0" cellspacing="0" border="0" class="display" id="example" width="100%">
+<thead>
+<tr class="tr_color">
+    <th style="width: 60px!important;" class=" sorting_asc">Do you have this cost?</th>
+    <th>Income type</th>
+    <th class=" sorting_asc">Income source</th>
+    <th class=" sorting_asc">Whose Income?</th>
+    <th  class=" sorting_asc">Paid on Date/Day</th>
+    <th class=" sorting_asc">Frequency</th>
+    <th>Amount</th>
+    <th>Paid to A/C</th>
+    <th class=" sorting_asc">Additional questions</th>
+</tr>
+</thead>
+<tbody data-bind="foreach : items">
+<tr class="odd gradeC">
+    <td class="center"><input type="checkbox" class="styled"></td>
+    <td class="center">Salary</td>
+    <td class="center"><input type="text" class="input_table" placeholder="Type here..."></td>
+    <td class="center">
+        <select>
+            <option>Select...</option>
+            <option>Select</option>
+            <option>Select</option>
+            <option>Select</option>
+        </select>
+    </td>
+    <td class="center select_top">
+        <div class="checkbox_table">
+            <p>Day<input type="radio" name="value" value="1"></p>
+            <p>Date<input type="radio" name="value" value="2"></p>
+        </div>
+        <select class="select_table">
+            <option>Select...</option>
+            <option>Select...</option>
+            <option>Select...</option>
+        </select>
+    </td>
+    <td class="center">
+        <select>
+            <option>Select...</option>
+            <option>Select...</option>
+            <option>Select...</option>
+        </select>
+    </td>
+    <td class="center"><input type="text" class="input_table" placeholder="Type here..."></td>
+    <td class="center">
+        <select>
+            <option>Select...</option>
+            <option>Select...</option>
+            <option>Select...</option>
+        </select>
+    </td>
+    <td class="center">N/A</td>
+</tr>
+<tr class="even gradeC">
+    <td class="center"><input type="checkbox" class="styled"></td>
+    <td class="center">Salary</td>
+    <td class="center"><input type="text" class="input_table" placeholder="Type here..."></td>
+    <td class="center">
+        <select>
+            <option>Select...</option>
+            <option>Select</option>
+            <option>Select</option>
+            <option>Select</option>
+        </select>
+    </td>
+    <td class="center select_top">
+        <div class="checkbox_table">
+            <p>Day<input type="radio" name="value" value="1"></p>
+            <p>Date<input type="radio" name="value" value="2"></p>
+        </div>
+        <select class="select_table">
+            <option>Select...</option>
+            <option>Select...</option>
+            <option>Select...</option>
+        </select>
+    </td>
+    <td class="center">
+        <select>
+            <option>Select...</option>
+            <option>Select...</option>
+            <option>Select...</option>
+        </select>
+    </td>
+    <td class="center"><input type="text" class="input_table" placeholder="Type here..."></td>
+    <td class="center">
+        <select>
+            <option>Select...</option>
+            <option>Select...</option>
+            <option>Select...</option>
+        </select>
+    </td>
+    <td class="center">N/A</td>
+</tr>
+<tr class="even gradeC">
+    <td class="center"><input type="checkbox" class="styled"></td>
+    <td class="center">Salary</td>
+    <td class="center"><input type="text" class="input_table" placeholder="Type here..."></td>
+    <td class="center">
+        <select>
+            <option>Select...</option>
+            <option>Select</option>
+            <option>Select</option>
+            <option>Select</option>
+        </select>
+    </td>
+    <td class="center select_top">
+        <div class="checkbox_table">
+            <p>Day<input type="radio" name="value" value="1"></p>
+            <p>Date<input type="radio" name="value" value="2"></p>
+        </div>
+        <select class="select_table">
+            <option>Select...</option>
+            <option>Select...</option>
+            <option>Select...</option>
+        </select>
+    </td>
+    <td class="center">
+        <select>
+            <option>Select...</option>
+            <option>Select...</option>
+            <option>Select...</option>
+        </select>
+    </td>
+    <td class="center"><input type="text" class="input_table" placeholder="Type here..."></td>
+    <td class="center">
+        <select>
+            <option>Select...</option>
+            <option>Select...</option>
+            <option>Select...</option>
+        </select>
+    </td>
+    <td class="center">N/A</td>
+</tr>
+<tr class="gradeC">
+    <td class="center"><input type="checkbox" class="styled"></td>
+    <td class="center">Salary</td>
+    <td class="center"><input type="text" class="input_table" placeholder="Type here..."></td>
+    <td class="center">
+        <select>
+            <option>Select...</option>
+            <option>Select</option>
+            <option>Select</option>
+            <option>Select</option>
+        </select>
+    </td>
+    <td class="center select_top">
+        <div class="checkbox_table">
+            <p>Day<input type="radio" name="value" value="1"></p>
+            <p>Date<input type="radio" name="value" value="2"></p>
+        </div>
+        <select class="select_table">
+            <option>Select...</option>
+            <option>Select...</option>
+            <option>Select...</option>
+        </select>
+    </td>
+    <td class="center">
+        <select>
+            <option>Select...</option>
+            <option>Select...</option>
+            <option>Select...</option>
+        </select>
+    </td>
+    <td class="center"><input type="text" class="input_table" placeholder="Type here..."></td>
+    <td class="center">
+        <select>
+            <option>Select...</option>
+            <option>Select...</option>
+            <option>Select...</option>
+        </select>
+    </td>
+    <td class="center">N/A</td>
+</tr>
+<tr class="gradeC">
+    <td class="center"><input type="checkbox" class="styled"></td>
+    <td class="center">Salary</td>
+    <td class="center"><input type="text" class="input_table" placeholder="Type here..."></td>
+    <td class="center">
+        <select>
+            <option>Select...</option>
+            <option>Select</option>
+            <option>Select</option>
+            <option>Select</option>
+        </select>
+    </td>
+    <td class="center select_top">
+        <div class="checkbox_table">
+            <p>Day<input type="radio" name="value" value="1"></p>
+            <p>Date<input type="radio" name="value" value="2"></p>
+        </div>
+        <select class="select_table">
+            <option>Select...</option>
+            <option>Select...</option>
+            <option>Select...</option>
+        </select>
+    </td>
+    <td class="center">
+        <select>
+            <option>Select...</option>
+            <option>Select...</option>
+            <option>Select...</option>
+        </select>
+    </td>
+    <td class="center"><input type="text" class="input_table" placeholder="Type here..."></td>
+    <td class="center">
+        <select>
+            <option>Select...</option>
+            <option>Select...</option>
+            <option>Select...</option>
+        </select>
+    </td>
+    <td class="center">N/A</td>
+</tr>
+<tr class="gradeC">
+    <td class="center"><input type="checkbox" class="styled"></td>
+    <td class="center">Salary</td>
+    <td class="center"><input type="text" class="input_table" placeholder="Type here..."></td>
+    <td class="center">
+        <select>
+            <option>Select...</option>
+            <option>Select</option>
+            <option>Select</option>
+            <option>Select</option>
+        </select>
+    </td>
+    <td class="center select_top">
+        <div class="checkbox_table">
+            <p>Day<input type="radio" name="value" value="1"></p>
+            <p>Date<input type="radio" name="value" value="2"></p>
+        </div>
+        <select class="select_table">
+            <option>Select...</option>
+            <option>Select...</option>
+            <option>Select...</option>
+        </select>
+    </td>
+    <td class="center">
+        <select>
+            <option>Select...</option>
+            <option>Select...</option>
+            <option>Select...</option>
+        </select>
+    </td>
+    <td class="center"><input type="text" class="input_table" placeholder="Type here..."></td>
+    <td class="center">
+        <select>
+            <option>Select...</option>
+            <option>Select...</option>
+            <option>Select...</option>
+        </select>
+    </td>
+    <td class="center">N/A</td>
+</tr>
+<tr class="gradeC">
+    <td class="center"><input type="checkbox" class="styled"></td>
+    <td class="center">Salary</td>
+    <td class="center"><input type="text" class="input_table" placeholder="Type here..."></td>
+    <td class="center">
+        <select>
+            <option>Select...</option>
+            <option>Select</option>
+            <option>Select</option>
+            <option>Select</option>
+        </select>
+    </td>
+    <td class="center select_top">
+        <div class="checkbox_table">
+            <p>Day<input type="radio" name="value" value="1"></p>
+            <p>Date<input type="radio" name="value" value="2"></p>
+        </div>
+        <select class="select_table">
+            <option>Select...</option>
+            <option>Select...</option>
+            <option>Select...</option>
+        </select>
+    </td>
+    <td class="center">
+        <select>
+            <option>Select...</option>
+            <option>Select...</option>
+            <option>Select...</option>
+        </select>
+    </td>
+    <td class="center"><input type="text" class="input_table" placeholder="Type here..."></td>
+    <td class="center">
+        <select>
+            <option>Select...</option>
+            <option>Select...</option>
+            <option>Select...</option>
+        </select>
+    </td>
+    <td class="center">N/A</td>
+</tr>
+<tr class="gradeC">
+    <td class="center"><input type="checkbox" class="styled"></td>
+    <td class="center">Salary</td>
+    <td class="center"><input type="text" class="input_table" placeholder="Type here..."></td>
+    <td class="center">
+        <select>
+            <option>Select...</option>
+            <option>Select</option>
+            <option>Select</option>
+            <option>Select</option>
+        </select>
+    </td>
+    <td class="center select_top">
+        <div class="checkbox_table">
+            <p>Day<input type="radio" name="value" value="1"></p>
+            <p>Date<input type="radio" name="value" value="2"></p>
+        </div>
+        <select class="select_table">
+            <option>Select...</option>
+            <option>Select...</option>
+            <option>Select...</option>
+        </select>
+    </td>
+    <td class="center">
+        <select>
+            <option>Select...</option>
+            <option>Select...</option>
+            <option>Select...</option>
+        </select>
+    </td>
+    <td class="center"><input type="text" class="input_table" placeholder="Type here..."></td>
+    <td class="center">
+        <select>
+            <option>Select...</option>
+            <option>Select...</option>
+            <option>Select...</option>
+        </select>
+    </td>
+    <td class="center">N/A</td>
+</tr>
+<tr class="gradeC">
+    <td class="center"><input type="checkbox" class="styled"></td>
+    <td class="center">Salary</td>
+    <td class="center"><input type="text" class="input_table" placeholder="Type here..."></td>
+    <td class="center">
+        <select>
+            <option>Select...</option>
+            <option>Select</option>
+            <option>Select</option>
+            <option>Select</option>
+        </select>
+    </td>
+    <td class="center select_top">
+        <div class="checkbox_table">
+            <p>Day<input type="radio" name="value" value="1"></p>
+            <p>Date<input type="radio" name="value" value="2"></p>
+        </div>
+        <select class="select_table">
+            <option>Select...</option>
+            <option>Select...</option>
+            <option>Select...</option>
+        </select>
+    </td>
+    <td class="center">
+        <select>
+            <option>Select...</option>
+            <option>Select...</option>
+            <option>Select...</option>
+        </select>
+    </td>
+    <td class="center"><input type="text" class="input_table" placeholder="Type here..."></td>
+    <td class="center">
+        <select>
+            <option>Select...</option>
+            <option>Select...</option>
+            <option>Select...</option>
+        </select>
+    </td>
+    <td class="center">N/A</td>
+</tr>
+</tbody>
+<tfoot>
+
+</tfoot>
+</table>
+</div>
+<div class="banners">
+    <div class="fleft income_p">
+        <p>Income</p>
+        <p>Running Total</p>
+    </div>
+    <div class="fleft butt_banner">
+        <a href="#" class="nodecor"><div class="price">$2500.00</div></a>
+    </div>
+    <div class="fleft butt_banner">
+        <a href="#"><img src="img/iamdone.png"></a>
+    </div>
+    <div class="fleft butt_banner">
+        <a href="#"> <img src="img/howto.png"></a>
+    </div>
+    <div class="fleft butt_banner">
+        <a href="#"><img src="img/clickvideo.png"></a>
+    </div>
+</div>
+</div>
+</div>
+</div>
+<div id="footer">
+</div>
+</div>
+</body>
+</html>

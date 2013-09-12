@@ -1,0 +1,156 @@
+<div class="bckg_page">
+    <div id="header">
+        <div id="logo"><a href="#"></a></div>
+        <div id="exit"><a data-bind="click : exit" class="exit" href="#"></a></div>
+    </div>
+    <div id="content dashbord" class="help">
+        <div class="left_video">
+            <img src="/pages/img/diagram_color.png" alt="diagramm" class="diagr_video">
+            <!-- ko with : small1 -->
+                <a data-bind="attr : { href : url }"><img data-bind="attr : { src : img}" ></a>
+            <!-- /ko -->
+            <!-- ko with : small2 -->
+                <a data-bind="attr : { href : url }"><img data-bind="attr : { src : img}" ></a>
+            <!-- /ko -->
+            <!-- ko with : middle -->
+                <a data-bind="attr : { href : url }"><img data-bind="attr : { src : img}" class="tesco"></a>
+            <!-- /ko -->
+        </div>
+        <div class="content video_page suppliers">
+            <div class="title_form">
+                <span class="back"><a href="#"><img src="/pages/img/back.png" alt="back"></a></span>
+                <span class="video_lib" data-bind="html : title">Y&ouml;r - Home</span>
+                <span class="dash"><a href="#"><img src="/pages/img/edit_sup.png" alt="back"></a></span>
+            </div>
+            <div class="editdel" id="modal_white">
+<!--  popup  -->
+                <div id="myModal2" style="display: none; left : 40%" class="modal hide fade modal_white" tabindex="-1" data-replace="true">
+                    <div class="modal-header">
+                        <a href="#" class="fright" data-dismiss="modal"><img src="/pages/img/close.png"></a>
+                        <h1 class="center">Y&ouml;r Back - Joe</h1>
+                    </div>
+
+
+                    <div class="modal-body">
+                        <div class="modal_content">
+
+                                <div class="dash_modal right_rew">
+                                    <img src="/pages/img/yor_rew.png">
+                                    <div class="fright" id="rewards">
+                                        <p>Save on Y&ouml;r</p>
+                                        <p>Next Purchase</p>
+                                        <button type="submit" class="butt_big green_btn">VIEW Y&ouml;R REWARDS</button>
+                                    </div>
+                                    <div class="clear"></div>
+                                    <div class="priew_copm">
+                                        <div class="companies fleft">
+                                            <div class="logo_comp"><img  src="/pages/img/esso.png"> </div>
+                                            <p class="persents">10% Off</p>
+                                            <button href="#" class="butt prewiwe">Prewiew</button>
+                                        </div>
+                                        <div class="companies fleft">
+                                            <div class="logo_comp"><img src="/pages/img/tesco_comp.png"></div>
+                                            <p class="persents">5% Off</p>
+                                            <button href="#" class="butt prewiwe">Prewiew</button>
+                                        </div>
+                                        <div class="companies fleft">
+                                            <div class="logo_comp"><img src="/pages/img/pizza.png"></div>
+                                            <p class="persents">Free starter</p>
+                                            <button href="#" class="butt prewiwe">Prewiew</button>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="dash_modal">
+                                    <h2 class="center">Y&ouml;r Latest Apps</h2>
+                                    <div class="apps">
+                                        <img class="fleft" src="/pages/img/calc.png">
+                                        <div class="fleft">
+                                            <p><strong>Self Assement Tax Calculator</strong></p>
+                                            <p class="italic">Save on y&ouml;r accountancy bills</p>
+                                            <p><button href="#" class="butt prewiwe">Prewiew</button> Special Offer 50% off</p>
+                                        </div>
+                                    </div>
+                                    <div class="apps">
+                                        <img class="fleft" src="/pages/img/impl.png">
+                                        <div class="fleft">
+                                            <p><strong>Home Improvement Budget List</strong></p>
+                                            <p class="italic">Plan y&ouml;r costs - no unexpectes costs!</p>
+                                            <p><button href="#" class="butt prewiwe">Prewiew</button> Special Offer 50% off</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                 <div class="clear"></div>
+                                <div class="dash_modal_sm">
+                                    <img src="/pages/img/news.png">
+                                    <div class="fright" id="rewardz">
+                                        <p>Y&ouml;r Articles</p>
+                                        <button type="submit" class="butt_big green_btn">ALL ARTICLES</button>
+                                    </div>
+                                    <div class="clear"></div>
+                                    <div class="article_btns" id="art_btn">
+                                        <p><span class="art_label">Holiday saving</span> <button href="#" class="butt prewiwe">READ</button></p>
+                                        <p><span class="art_label">Reducing debt</span> <button href="#" class="butt prewiwe">READ</button></p>
+                                        <p><span class="art_label">Insurance pitfalls</span> <button href="#" class="butt prewiwe">READ</button> </p>
+                                        <p><span class="art_label">Reducing food costs</span> <button href="#" class="butt prewiwe">READ</button></p>
+                                        <p><span class="art_label">Entertaining the kids</span> <button href="#" class="butt prewiwe">READ</button></p>
+                                    </div>
+                                </div>
+
+                                <div class="rwrd_crd">
+                                    <div class="apply_btn fright">
+                                        <button type="submit" class="butt_big green_btn">APPLY!</button>
+                                    </div>
+                                </div>
+
+                                <div class="upgrades">
+                                    <h2 class="center">Y&ouml;r Upgrades</h2>
+                                    <div class="apps">
+                                        <img class="fleft" src="/pages/img/boxx.png">
+                                        <div class="fleft">
+                                            <p><strong>Additional</strong></p>
+                                            <p><strong>Data Storage</strong></p>
+                                            <p><button href="#" class="butt green_sm">BUY NOW</button></p>
+                                        </div>
+                                    </div>
+                                    <div class="apps">
+                                        <img class="fleft" src="/pages/img/yor_v.png">
+                                        <div class="fleft">
+                                            <p><strong>Y&ouml;r Money</strong></p>
+                                            <p><strong>v.3.1</strong></p>
+                                            <p><button href="#" class="butt green_sm">BUY NOW</button></p>
+                                        </div>
+                                    </div>
+                                </div>
+
+                        </div>
+                    </div>
+                </div>
+<!--  end popup  -->
+                <div class="bckgr_full">
+                <div class="help_content">
+                    <div class="">
+                        <!-- ko with : content -->
+                        <!-- ko template : { html : template } -->
+                        <!-- /ko -->
+                        <!-- /ko -->  
+
+                        <div class="banner_legal" data-bind="with : bottom">
+                            <a data-bind="attr : { href : url}">
+                                <img data-bind="attr : { src : img}" >
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="budget">
+                    <div class="fleft white">BUDGET <span data-bind="text : budget">1,000.00<span></div>
+                    <div class="fright green">ACTUAL <span  data-bind="text : actual">500.00<span></div>
+                </div>
+            </div>
+            </div>
+        </div>
+        <div id="footer"></div>
+    </div>
+
+</div>

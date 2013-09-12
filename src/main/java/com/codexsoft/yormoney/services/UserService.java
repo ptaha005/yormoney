@@ -1,0 +1,143 @@
+package com.codexsoft.yormoney.services;
+
+import com.codexsoft.yormoney.dao.*;
+import com.codexsoft.yormoney.domain.*;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
+
+import java.util.List;
+import java.util.Map;
+
+@Service
+public class UserService {
+
+    @Autowired
+    private UserDao userDao;
+
+    @Autowired
+    private DocumentDao documentDao;
+
+    @Autowired
+    private RelationshipDao relationshipDao;
+
+    @Autowired
+    private FolderDao folderDao;
+
+    @Autowired
+    private NoteDao noteDao;
+
+    @Autowired
+    private BalanceDao balanceDao;
+
+    @Transactional
+    public List<Note> getListNoteByParams(Map<String, Object> params){
+        return noteDao.getListByParams(params);
+    }
+
+    @Transactional
+    public void saveOrUpdateUser(User user){
+        userDao.saveOrUpdate(user);
+    }
+
+    @Transactional
+    public User findByUsername(String username){
+        return userDao.getByUsername(username);
+    }
+
+    @Transactional
+    public User findByEmail(String Email){
+        return userDao.getByEmail(Email);
+    }
+
+    @Transactional
+    public void deleteUser(User user){
+        userDao.delete(user);
+    }
+
+    @Transactional
+    public User getUserById(Long id){
+        return userDao.read(id);
+    }
+
+    @Transactional
+    public User getUserByActivationCode(String activationCode){
+        return userDao.getUserByActivationCode(activationCode);
+    }
+
+    @Transactional
+    public List<Relationship> getRelationships(){
+        return relationshipDao.list();
+    }
+
+    @Transactional
+    public List<Document> getListDocumentByParams(Map<String, Object> params){
+        return documentDao.getListByParams(params);
+    }
+
+    @Transactional
+    public Document getDocumentByParams(Map<String, Object> params){
+        return documentDao.getByParams(params);
+    }
+
+    @Transactional
+    public User getUserByParams(Map<String, Object> params){
+        return userDao.getByParams(params);
+    }
+
+    @Transactional
+    public void saveOrUpdateDocument(Document document){
+        documentDao.saveOrUpdate(document);
+    }
+
+    @Transactional
+    public Folder getFolderByParams(Map<String, Object> params){
+        return folderDao.getByParams(params);
+    }
+
+    @Transactional
+    public void saveOrUpdateFolder(Folder folder){
+        folderDao.saveOrUpdate(folder);
+    }
+
+    @Transactional
+    public void saveOrUpdateBalance(Balance balance){
+        balanceDao.saveOrUpdate(balance);
+    }
+
+    @Transactional
+    public List<Folder> getListFolderByParams(Map<String, Object> params){
+        return folderDao.getListByParams(params);
+    }
+
+    @Transactional
+    public Balance getBalanceByParams(Map<String, Object> params){
+        return balanceDao.getByParams(params);
+    }
+
+    @Transactional
+    public void deleteFolder(Folder folder){
+        folderDao.delete(folder);
+    }
+
+    @Transactional
+    public void deleteDocument(Document document){
+        documentDao.delete(document);
+    }
+
+    @Transactional
+    public Folder getFolderById(Long id){
+        return folderDao.read(id);
+    }
+
+    @Transactional
+    public Document getDocumentById(Long id){
+        return documentDao.read(id);
+    }
+
+    @Transactional
+    public void merge(User user){
+        userDao.merge(user);
+    }
+
+}

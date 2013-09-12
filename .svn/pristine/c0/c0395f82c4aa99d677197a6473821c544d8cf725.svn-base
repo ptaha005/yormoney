@@ -1,0 +1,681 @@
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta charset="utf-8">
+    <title>Y&ouml;r - Product Information</title>
+    <link rel="stylesheet" type="text/css" href="../pages/css/style.css">
+
+    <script src="../pages/app/lib/jquery.min.js"></script>
+    <script src="../pages/app/lib/bootstrap/js/bootstrap.js"></script>
+
+    <link rel="stylesheet" href="../pages/css/jquery-ui.css" />
+    <script src="../pages/app/lib/jquery-ui.js"></script>
+     <style>
+
+    </style>
+
+</head>
+<body>
+<div class="bckg_page">
+    <div id="header">
+        <div id="logo"><a href="#"></a></div>
+        <div id="exit"><a class="exit" href="#"></a></div>
+    </div>
+    <div id="content" class="help">
+        <div class="left_video">
+            <img src="../pages/img/diagram_color.png" alt="diagramm" class="diagr_video">
+            <a href="#"><img src="../pages/img/apps.png" alt="apps" class="app"></a>
+            <a href="#"><img src="../pages/img/yoshop.png" alt="yor shop"></a>
+            <a href="#"><img src="../pages/img/tescobl.png" alt="tesco" class="tesco"></a>
+        </div>
+        <div class="content video_page suppliers">
+            <div class="title_form">
+                <span class="back"><a href="#"><img src="../pages/img/back.png" alt="back"></a></span>
+                <span class="video_lib">Y&ouml;r - Product Information</span>
+                <span class="dash"><a href="#"><img src="../pages/img/edit_sup.png" alt="back"></a></span>
+            </div>
+            <div class="bckgr_full">
+                <div class="help_content">
+                    <div class="address_cont">
+                        <div class="fleft">
+                            <h3>Finances | Insurance | Critical Illness</h3>
+                        </div>
+                        <div class="fright">
+                            <ul class="menu_supplier">
+                                <li><a href="#"><img src="../pages/../pages/img/suppl_hat.png"></a></li>
+                                <li><a href="#"><img src="../pages/img/suppl_print.png"></a></li>
+                                <li><a href="#"><img src="../pages/img/suppl_conv.png"></a></li>
+                                <li><a href="#"><img src="../pages/img/suppl_cancel.png"></a></li>
+                                <li><a href="#"><img src="../pages/img/suppl_message.png"></a></li>
+                                <li><a href="#"><img src="../pages/img/suppl_kino.png"></a></li>
+                            </ul>
+                        </div>
+                        <div class="clear"></div>
+                        <div class="product_info ">
+                            <div class="product_parent">
+                                <div class="tabbable tabs-left">
+                                    <ul class="nav nav-tabs">
+                                        <li class="active"><a href="#home" data-toggle="tab"><img src="img/dom.png"></a></li>
+                                        <li class=""><a href="#payhistory" data-toggle="tab"><img src="img/payment_hist.png"></a></li>
+                                        <li class=""><a href="#contacts" data-toggle="tab"><img src="img/cont_det.png"></a></li>
+                                        <li class=""><a href="#documents" data-toggle="tab"><img src="img/doc_storage.png"></a></li>
+                                        <li class=""><a href="#compare" data-toggle="tab"><img src="img/Compare.png"></a></li>
+                                    </ul>
+                                    <div class="tab-content">
+                                        <div class="tab-pane active" id="home">
+                                            <div class="overlay_provide">
+                                                <div class="providers_fisrt">
+                                                    <p>
+                                                        <span class="label_product"><strong>Provider</strong></span>
+                                                        <span>Pru Protetc</span>
+                                                    </p>
+                                                    <p>
+                                                        <span class="label_product"><strong>Life Assured</strong></span>
+                                                        <span>Joe & Anne Bloggs</span>
+                                                    </p>
+                                                    <p>
+                                                        <span class="label_product"><strong>Payment Dat</strong></span>
+                                                        <span>1st</span>
+                                                    </p>
+                                                    <p>
+                                                        <span class="label_product"><strong>Frequency</strong></span>
+                                                        <span>Monthly</span>
+                                                    </p>
+                                                    <p>
+                                                        <span class="label_product"><strong>Cover</strong></span>
+                                                        <span>£100,000</span>
+                                                    </p>
+                                                </div>
+                                                <div class="providers_second">
+                                                    <p>
+                                                        <span class="label_product"><strong>Policy Number</strong></span>
+                                                        <span>1234-5678-9</span>
+                                                    </p>
+                                                    <p>
+                                                        <span class="label_product"><strong>Start Fate</strong></span>
+                                                        <span>12/12/2012</span>
+                                                    </p>
+                                                    <p>
+                                                        <span class="label_product"><strong>End Date</strong></span>
+                                                        <span>13/13/2013</span>
+                                                    </p>
+                                                    <p>
+                                                        <span class="label_product"><strong>Payment Amount</strong></span>
+                                                        <span>£22,12</span>
+                                                    </p>
+                                                    <p>
+                                                        <span class="label_product"><strong>Paid From</strong></span>
+                                                        <span>Bills Account</span>
+                                                    </p>
+                                                    <p>
+                                                        <span class="label_product"><strong>Purpose</strong></span>
+                                                        <span>Mortgage</span>
+                                                    </p>
+                                                </div>
+                                                <div class="clear"><br></div>
+                                            </div>
+                                            <div class="textarea_suppl table_width">
+                                                <table class="table table-bordered">
+                                                    <thead>
+                                                    <tr>
+                                                        <th>DATES</th>
+                                                        <th>NOTES</th>
+                                                    </tr>
+                                                    </thead>
+                                                    <tbody>
+                                                    <tr>
+                                                        <td>23/05/2009</td>
+                                                        <td>IOU to Joe - $50</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td></td>
+                                                        <td></td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td></td>
+                                                        <td></td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td></td>
+                                                        <td></td>
+                                                    </tr>
+
+                                                    <tr>
+                                                        <td></td>
+                                                        <td></td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td></td>
+                                                        <td></td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td></td>
+                                                        <td></td>
+                                                    </tr>
+
+                                                    <tr>
+                                                        <td></td>
+                                                        <td></td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td></td>
+                                                        <td></td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td></td>
+                                                        <td></td>
+                                                    </tr>
+
+                                                    </tbody>
+                                                </table>
+                                            </div>
+
+                                        </div>
+                                        <div class="tab-pane" id="payhistory">
+                                            <div class="">
+                                                <div class="textarea_suppl table_top">
+                                                    <table class="table table-bordered">
+                                                        <thead>
+                                                        <tr>
+                                                            <th>DATES</th>
+                                                            <th>NOTES</th>
+                                                        </tr>
+                                                        </thead>
+                                                        <tbody>
+                                                        <tr>
+                                                            <td>23/05/2009</td>
+                                                            <td>IOU to Joe - $50</td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td></td>
+                                                            <td></td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td></td>
+                                                            <td></td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td></td>
+                                                            <td></td>
+                                                        </tr>
+
+                                                        <tr>
+                                                            <td></td>
+                                                            <td></td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td></td>
+                                                            <td></td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td></td>
+                                                            <td></td>
+                                                        </tr>
+
+                                                        <tr>
+                                                            <td></td>
+                                                            <td></td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td></td>
+                                                            <td></td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td></td>
+                                                            <td></td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td></td>
+                                                            <td></td>
+                                                        </tr>
+
+                                                        </tbody>
+                                                    </table>
+
+                                                </div>
+                                                <div class="last_reconcl">Last time you reconclied these payments: 01/08/2008</div>
+                                            </div>
+                                            <div class="textarea_suppl table_width">
+                                                <table class="table table-bordered">
+                                                    <thead>
+                                                    <tr>
+                                                        <th>DATES</th>
+                                                        <th>NOTES</th>
+                                                    </tr>
+                                                    </thead>
+                                                    <tbody>
+                                                    <tr>
+                                                        <td>23/05/2009</td>
+                                                        <td>IOU to Joe - $50</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td></td>
+                                                        <td></td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td></td>
+                                                        <td></td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td></td>
+                                                        <td></td>
+                                                    </tr>
+
+                                                    <tr>
+                                                        <td></td>
+                                                        <td></td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td></td>
+                                                        <td></td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td></td>
+                                                        <td></td>
+                                                    </tr>
+
+                                                    <tr>
+                                                        <td></td>
+                                                        <td></td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td></td>
+                                                        <td></td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td></td>
+                                                        <td></td>
+                                                    </tr>
+
+                                                    </tbody>
+                                                </table>
+                                            </div>
+                                        </div>
+                                        <div class="tab-pane" id="contacts">
+                                            <div class="overlay_provide">
+                                                <div class="providers_fisrt">
+                                                    <p>
+                                                        <span class="label_product"><strong>Provider</strong></span>
+                                                        <span>Pru Protetc</span>
+                                                    </p>
+                                                    <div class="overflo">
+                                                        <span class="label_product fleft"><strong>Address</strong></span>
+                                                        <div class="fleft">
+                                                            <p>Address Line 1</p>
+                                                            <p>Address Line 2</p>
+                                                            <p>Address Line 3</p>
+                                                        </div>
+                                                    </div>
+                                                       <div class="add_buttns">
+                                                           <p class="task"><strong><a href="#"><img class="vertical" src="img/plus.png">Telephone Number</a></strong></p>
+                                                           <p class="task"><strong><a href="#"><img class="vertical" src="img/plus.png">Email Address</a></strong></p>
+                                                       </div>
+                                                </div>
+
+                                                <div class="providers_second">
+                                                    <div>
+                                                        <p><strong>Telephone numbers</strong></p>
+                                                        <table class="table" id="edit">
+                                                            <tr>
+                                                                <td>Claims</td>
+                                                                <td>01234 567 890</td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td>Admin</td>
+                                                                <td>01234 567 890</td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td>Janice</td>
+                                                                <td>01234 567 890</td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td></td>
+                                                                <td></td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td></td>
+                                                                <td></td>
+                                                            </tr>
+                                                        </table>
+                                                    </div>
+                                                    <div>
+                                                        <p><strong>Email addresses</strong></p>
+                                                        <table class="table" id="editor">
+                                                            <tr>
+                                                                <td>Claims</td>
+                                                                <td>01234 567 890</td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td>Admin</td>
+                                                                <td>01234 567 890</td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td>Janice</td>
+                                                                <td>01234 567 890</td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td></td>
+                                                                <td></td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td></td>
+                                                                <td></td>
+                                                            </tr>
+                                                        </table>
+                                                    </div>
+                                                </div>
+                                                <div class="clear"><br></div>
+                                            </div>
+                                            <div class="textarea_suppl table_width">
+                                                <table class="table table-bordered">
+                                                    <thead>
+                                                    <tr>
+                                                        <th>DATES</th>
+                                                        <th>NOTES</th>
+                                                    </tr>
+                                                    </thead>
+                                                    <tbody>
+                                                    <tr>
+                                                        <td>23/05/2009</td>
+                                                        <td>IOU to Joe - $50</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td></td>
+                                                        <td></td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td></td>
+                                                        <td></td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td></td>
+                                                        <td></td>
+                                                    </tr>
+
+                                                    <tr>
+                                                        <td></td>
+                                                        <td></td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td></td>
+                                                        <td></td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td></td>
+                                                        <td></td>
+                                                    </tr>
+
+                                                    <tr>
+                                                        <td></td>
+                                                        <td></td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td></td>
+                                                        <td></td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td></td>
+                                                        <td></td>
+                                                    </tr>
+
+                                                    </tbody>
+                                                </table>
+                                            </div>
+                                        </div>
+                                        <div class="tab-pane" id="documents">
+                                            <div class="overlay_provide">
+                                                <ul class="folders overflo">
+                                                    <li>
+                                                        <a href="#"><img src="img/folder.png"></a>
+                                                        <a href="#"><p>Policy Documents</p></a>
+                                                    </li>
+                                                    <li>
+                                                        <a href="#"><img src="img/folder.png"></a>
+                                                        <a href="#"><p>Correspondance</p></a>
+                                                    </li>
+                                                    <li>
+                                                        <a href="#"><img src="img/folder.png"></a>
+                                                        <a href="#"><p>My Financial Adviser</p></a>
+                                                    </li>
+                                                    <li>
+                                                        <a href="#"><img src="img/folder.png"></a>
+                                                        <a href="#"><p>Email</p></a>
+                                                    </li>
+                                                    <li>
+                                                        <a href="#"><img src="img/folder.png"></a>
+                                                        <a href="#"><p>Misc</p></a>
+                                                    </li>
+                                                </ul>
+                                                <div class="clear"></div>
+                                                <div id="red"></div>
+                                                <ul class="docs overflo">
+                                                    <li>
+                                                        <a href="#"><img src="img/report.png"></a>
+                                                        <a href="#"><p>Report</p></a>
+                                                    </li>
+                                                    <li>
+                                                        <a href="#"><img src="img/pfr.png"></a>
+                                                        <a href="#"><p>Schedule</p></a>
+                                                    </li>
+                                                    <li>
+                                                        <img src="img/cover.png"></a>
+                                                        <a href="#"><p>Cover Note</p></a>
+                                                    </li>
+                                                    <li>
+                                                        <a href="#"><img src="img/xls.png"></a>
+                                                        <a href="#"><p>Spreadsheet</p></a>
+                                                    </li>
+                                                </ul>
+                                            </div>
+                                            <div class="textarea_suppl table_width">
+                                                <table class="table table-bordered">
+                                                    <thead>
+                                                    <tr>
+                                                        <th>DATES</th>
+                                                        <th>NOTES</th>
+                                                    </tr>
+                                                    </thead>
+                                                    <tbody>
+                                                    <tr>
+                                                        <td>23/05/2009</td>
+                                                        <td>IOU to Joe - $50</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td></td>
+                                                        <td></td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td></td>
+                                                        <td></td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td></td>
+                                                        <td></td>
+                                                    </tr>
+
+                                                    <tr>
+                                                        <td></td>
+                                                        <td></td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td></td>
+                                                        <td></td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td></td>
+                                                        <td></td>
+                                                    </tr>
+
+                                                    <tr>
+                                                        <td></td>
+                                                        <td></td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td></td>
+                                                        <td></td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td></td>
+                                                        <td></td>
+                                                    </tr>
+
+                                                    </tbody>
+                                                </table>
+                                            </div>
+                                        </div>
+                                        <div class="tab-pane" id="compare">
+                                            <div class="compare_pay">
+                                                 <div class="compare_content">
+                                                      <h2 class="red">Joe, we've found 14 polcies from £10.90 per month</h2>
+                                                     <p><small>You have searched for: <strong>Single, Life Insurance with Critical Illness </strong>cover for <strong>£100,000.00</strong>, over <strong>15 years.</strong></small></p>
+                                                     <table class="compare_table">
+                                                          <thead>
+                                                          <tr>
+                                                              <td><p>Insurance</p><p>Company</p></td>
+                                                              <td><p>Monthly</p><p>Payment</p></td>
+                                                              <td><p>Could my</p><p>payment</p><p>changes?</p></td>
+                                                              <td style="width: 200px"><p>Policy Features</p><p class="nobold">(see policy documents for full details)<a href="#"><img src="img/question.png"></a></p></td>
+                                                              <td><p>Make Y&ouml;r</p><p>Choise</p></td>
+                                                          </tr>
+                                                          </thead>
+                                                         <tbody>
+                                                         <tr class="table_over">
+                                                             <td class="insur_logo"><img src="img/scott.png"></td>
+                                                             <td class="blue_color"><h1><strong>£11.55</strong></h1></td>
+                                                             <td><strong><p>No</p></strong><p>(guaranteed)</p></td>
+                                                             <td class="text-left">
+                                                                <p><img src="img/done.png">Pays on diagnosis of terminal illness</p>
+                                                                <p><img src="img/done.png">Can be amended if circumstances change</p>
+                                                                <p><img src="img/done.png">Can write this policy into trust</p>
+                                                                <p><img src="img/done.png">Free cover during your application</p>
+                                                                <p><img src="img/done.png">Free bereavement couselling</p>
+                                                             </td>
+                                                             <td class="check">
+                                                                 <input id="ch1" class="css-checkbox" type="checkbox" />
+                                                                 <label for="ch1" name="demo_lbl_1" class="css-label"></label>
+                                                                 <!-- Checkbox powered by CssCheckbox.com -->
+                                                                 <p><a href="#">Read policy</a></p>
+                                                                 <p><a href="#">Documents</a></p>
+                                                             </td>
+                                                         </tr>
+                                                         <tr style="height: 10px"></tr>
+                                                         <tr class="table_over">
+                                                             <td class="insur_logo"><img src="img/aviva.png"></td>
+                                                             <td class="blue_color"><h1><strong>£12.55</strong></h1></td>
+                                                             <td><strong><p>No</p></strong><p>(guaranteed)</p></td>
+                                                             <td class="text-left">
+                                                                <p><img src="img/done.png">Pays on diagnosis of terminal illness</p>
+                                                                <p><img src="img/otm.png">Can be amended if circumstances change</p>
+                                                                <p><img src="img/done.png">Can write this policy into trust</p>
+                                                                <p><img src="img/done.png">Free cover during your application</p>
+                                                                <p><img src="img/otm.png">Free bereavement couselling</p>
+                                                             </td>
+                                                             <td class="check">
+                                                                 <input id="ch2" class="css-checkbox" type="checkbox" />
+                                                                 <label for="ch2" name="demo_lbl_1" class="css-label"></label>
+                                                                 <p><a href="#">Read policy</a></p>
+                                                                 <p><a href="#">Documents</a></p>
+                                                             </td>
+                                                         </tr>
+                                                         <tr style="height: 10px"></tr>
+                                                         <tr class="table_over">
+                                                             <td><img src="img/scott.png"></td>
+                                                             <td class="blue_color"><h1><strong>£11.55</strong></h1></td>
+                                                             <td><strong><p>No</p></strong><p>(guaranteed)</p></td>
+                                                             <td class="text-left">
+                                                                <p><img src="img/done.png">Pays on diagnosis of terminal illness</p>
+                                                                <p><img src="img/done.png">Can be amended if circumstances change</p>
+                                                                <p><img src="img/done.png">Can write this policy into trust</p>
+                                                                <p><img src="img/done.png">Free cover during your application</p>
+                                                                <p><img src="img/done.png">Free bereavement couselling</p>
+                                                             </td>
+                                                             <td class="check">
+                                                                 <input id="ch3" class="css-checkbox" type="checkbox" />
+                                                                 <label for="ch3" name="demo_lbl_1" class="css-label"></label>
+                                                                 <p><a href="#">Read policy</a></p>
+                                                                 <p><a href="#">Documents</a></p>
+                                                             </td>
+                                                         </tr>
+                                                         <tr style="height: 10px"></tr>
+                                                         </tbody>
+                                                     </table>
+                                                 </div>
+                                            </div>
+                                            <div class="textarea_compare">
+                                                 <div class="fleft premium">
+                                                     <p>Y&ouml;r Current Premium = £23.98</p>
+                                                     <p>Y&ouml;r Proposed Premium = £11.55</p>
+                                                 </div>
+                                                 <div class="fleft green center">
+                                                     <h2>Y&ouml;r Saving</h2>
+                                                     <p><strong>£12.98 p.c.m.</strong></p>
+                                                     <p><strong>£141.55 p.a.</strong></p>
+                                                 </div>
+                                                 <div class="fright">
+                                                     <div href="#" class="butt_big green_btn_big">
+                                                         <p>Buy Y&ouml;r</p>
+                                                         <p>Policy</p>
+                                                     </div>
+                                                 </div>
+
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </div>
+                            <div class="banner_legal">
+                                <img src="../pages/img/banner_legal.png">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="budget">
+                    <div class="fleft white">BUDGET £1,000.00</div>
+                    <div class="fright green">ACTUAL £500.00</div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="footer">
+    </div>
+</div>
+
+
+<script>
+    function hexFromRGB(r, g, b) {
+        var hex = [
+            r.toString( 16 ),
+            g.toString( 16 ),
+            b.toString( 16 )
+        ];
+        $.each( hex, function( nr, val ) {
+            if ( val.length === 1 ) {
+                hex[ nr ] = "0" + val;
+            }
+        });
+        return hex.join( "" ).toUpperCase();
+    }
+    function refreshSwatch() {
+        var red = $( "#red" ).slider( "value" ),
+                green = $( "#green" ).slider( "value" ),
+                blue = $( "#blue" ).slider( "value" ),
+                hex = hexFromRGB( red, green, blue );
+        $( "#swatch" ).css( "background-color", "#" + hex );
+    }
+    $(function() {
+        $( "#red, #green, #blue" ).slider({
+            orientation: "horizontal",
+            range: "min",
+            max: 255,
+            value: 127,
+            slide: refreshSwatch,
+            change: refreshSwatch
+        });
+        $( "#red" ).slider( "value", 10 );
+        $( "#green" ).slider( "value", 140 );
+        $( "#blue" ).slider( "value", 60 );
+    });
+</script>
+</body>
+</html>

@@ -1,0 +1,65 @@
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta charset="utf-8">
+    <title>Y&ouml;r  - Results</title>
+    <link rel="stylesheet" type="text/css" href="css/style.css">
+</head>
+<body>
+<div class="results" id="content">
+    <div class="content" >
+        <div class="title_form"><span class="logo_sm"></span><span class="tittle title">Y&ouml;r - Results</span></div>
+        <div class="results_cont">
+            <div class="result_left">
+                <div class="radius_l">
+                   <img class="diagramm" src="img/diagramm.png" alt="diagramm"/>
+                   <a href="#"><img class="banner" src="img/tesco.png" alt="tesco - Great saving!"/></a>
+                    <iframe class="banner" width="225" height="155"
+                            src="http://www.youtube.com/embed/XGSy3_Czz8k">
+                    </iframe>
+                </div>
+            </div>
+            <div class="result_right">
+                <div class="button_top">
+                    <div class="inline"><a class="button_low result">Your Results</a></div>
+                    <div class="inline clear"><a class="button_low option">Your Options</a></div>
+                </div>
+                <div class="butts_block">
+                    <div class="inline"><a class="button_sm result_sm">Your <div>Income Vs Expenditure</div></a></div>
+                    <div class="inline"><a class="button_sm income">Your <div>Spending Review</div></a></div>
+                    <div class="inline"><a class="button_sm income">Your <div>Amendments</div></a></div>
+                    <div class="inline"><a class="button_sm income">Your <div>Reality Check</div></a></div>
+                </div>
+                <div class="fright clear summ">
+                    <p>Summary View</p>
+                    <select>
+                          <option>Joint</option>
+                          <option>errg</option>
+                          <option>ettg</option>
+                          <option>rtg</option>
+                    </select>
+                </div>
+                <div class="clear">
+                     <div class="inline columns">
+                         <div class="inline">
+                             <div class="column_bl"></div>
+                             <p>Your Income</p>
+                         </div>
+                         <div class="inline">
+                             <div class="column_gr"></div>
+                             <p>Your Expenditure</p>
+                         </div>
+                     </div>
+                    <div class="inline">
+                        <div class="congratul"><img src="img/congratul.png" alt="congratulation"> </div>
+                        <div><input type="button" class="button_next" value="NEXT"></div>
+                    </div>
+                </div>
+            </div>
+            <div class="fright"><input type="button" class="button_save" value="SAVE & EXIT"></div>
+        </div>
+
+    </div>
+</div>
+</body>
+</html>

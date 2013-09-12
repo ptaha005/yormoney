@@ -1,0 +1,1 @@
+define(["knockout","jquery","text!./../templates/CategoriesPopup.html"],function(e,t,n){return function(r){var i=this;i.items=e.observableArray(r),i.afterRender=function(){t("#myModal").modal("show")},i.template=n}})

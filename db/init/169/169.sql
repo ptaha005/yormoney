@@ -1,0 +1,1 @@
+ ALTER TABLE event MODIFY active ShortName tinyint(1);

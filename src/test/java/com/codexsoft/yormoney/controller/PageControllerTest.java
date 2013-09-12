@@ -1,0 +1,79 @@
+package com.codexsoft.yormoney.controller;
+
+import com.codexsoft.yormoney.AbstractContextControllerTests;
+import com.codexsoft.yormoney.domain.Page;
+import com.codexsoft.yormoney.services.PageService;
+import com.codexsoft.yormoney.util.datatables.ParamBuilder;
+import org.apache.log4j.Logger;
+import org.junit.Test;
+import org.junit.runner.RunWith;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.MediaType;
+import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
+import org.springframework.test.context.transaction.TransactionConfiguration;
+import org.springframework.test.web.servlet.ResultActions;
+
+import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
+import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
+import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.content;
+
+
+import java.util.Iterator;
+import java.util.List;
+
+@RunWith(SpringJUnit4ClassRunner.class)
+@TransactionConfiguration
+public class PageControllerTest extends AbstractContextControllerTests {
+
+    private final Logger log = Logger.getLogger(PageControllerTest.class);
+
+    @Autowired
+    private PageService pageService;
+
+    @Test
+    public void getManuals() throws Exception{
+        log.info("Class PageController, method - /page/manual/{value}, testing");
+        List<Page> pages = pageService.getPage();
+        Iterator<Page> iter = pages.iterator();
+        Page page = null;
+
+        while (iter.hasNext()){
+            page = iter.next();
+            ResultActions ra = this.mockMvc.perform(get("/page/manual/{value}" ,page.getType()));
+            ra.andExpect(status().isOk());
+            ra.andExpect(content().contentType(MediaType.APPLICATION_JSON));
+        }
+    }
+
+    @Test
+    public void getVideos() throws Exception{
+        log.info("Class PageController, method - /page/video/{value}, testing");
+        List<Page> pages = pageService.getPage();
+        Iterator<Page> iter = pages.iterator();
+        Page page = null;
+
+        while (iter.hasNext()) {
+            page = iter.next();
+            ResultActions ra = this.mockMvc.perform(get("/page/video/{value}",page.getType()));
+            ra.andExpect(status().isOk());
+            ra.andExpect(content().contentType(MediaType.APPLICATION_JSON));
+        }
+    }
+
+    @Test
+    public void getBanners() throws Exception{
+        log.info("Class PageController, method - /page/baner/{value}, testing");
+        List<Page> pages = pageService.getPage();
+        Iterator<Page> iter = pages.iterator();
+        Page page = null;
+
+        while (iter.hasNext()) {
+            page = iter.next();
+            ResultActions ra = this.mockMvc.perform(get("/page/banner/{value}",page.getType()));
+            ra.andExpect(status().isOk());
+            ra.andExpect(content().contentType(MediaType.APPLICATION_JSON));
+        }
+    }
+
+
+}

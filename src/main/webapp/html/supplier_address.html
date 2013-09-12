@@ -1,0 +1,378 @@
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta charset="utf-8">
+    <title>Y&ouml;r - Address Book</title>
+    <link rel="stylesheet" type="text/css" href="css/style.css">
+    <link rel="stylesheet" type="text/css" href="css/selectbox.css">
+    <script src="app/lib/datatable/jquery.js"></script>
+    <script src="app/lib/jquery.selectbox.js"></script>
+    <script>
+        (function($) {
+            $(function() {
+                $('select').selectbox();
+
+                $('#add').click(function(e) {
+                    $(this).parents('div.section').append('<br /><br /><select><option>-- Выберите --</option><option>Пункт 1</option><option>Пункт 2</option><option>Пункт 3</option><option>Пункт 4</option><option>Пункт 5</option></select>');
+                    $('select').selectbox();
+                    e.preventDefault();
+                })
+
+                $('#add2').click(function(e) {
+                    var options = '';
+                    for (i = 1; i <= 5; i++) {
+                        options += '<option>Option ' + i + '</option>';
+                    }
+                    $(this).parents('div.section').find('select').each(function() {
+                        $(this).append(options);
+                    })
+                    $('select').trigger('refresh');
+                    e.preventDefault();
+                })
+
+                $('#che').click(function(e) {
+                    $(this).parents('div.section').find('option:nth-child(5)').attr('selected', true);
+                    $('select').trigger('refresh');
+                    e.preventDefault();
+                })
+
+            })
+        })(jQuery)
+    </script>
+</head>
+<body>
+<div class="bckg_page">
+    <div id="header">
+        <div id="logo"><a href="#"></a></div>
+        <div id="exit"><a class="exit" href="#"></a></div>
+    </div>
+    <div id="content" class="help">
+        <div class="left_video">
+            <img src="img/diagram_color.png" alt="diagramm" class="diagr_video">
+            <a href="#"><img src="img/apps.png" alt="apps" class="app"></a>
+            <a href="#"><img src="img/yoshop.png" alt="yor shop"></a>
+            <a href="#"><img src="img/tescobl.png" alt="tesco" class="tesco"></a>
+        </div>
+        <div class="content video_page suppliers">
+            <div class="title_form">
+                <span class="back"><a href="#"><img src="img/back.png" alt="back"></a></span>
+                <span class="video_lib">Y&ouml;r - Address Book</span>
+                <span class="dash"><a href="#"><img src="img/edit_sup.png" alt="back"></a></span>
+            </div>
+            <div class="bckgr_full">
+                <div class="help_content">
+                  <div class="left_butts">
+                      <ul>
+                          <li><a href="#">A</a></li>
+                          <li><a href="#">B</a></li>
+                          <li><a href="#">C</a></li>
+                          <li><a href="#">D</a></li>
+                          <li><a href="#">E</a></li>
+                          <li><a href="#">F</a></li>
+                          <li><a href="#">G</a></li>
+                          <li><a href="#">H</a></li>
+                          <li><a href="#">I</a></li>
+                          <li><a href="#">J</a></li>
+                          <li><a href="#">K</a></li>
+                          <li><a href="#">L</a></li>
+                          <li><a href="#">M</a></li>
+                          <li><a href="#">N</a></li>
+                          <li><a href="#">O</a></li>
+                          <li><a href="#">P</a></li>
+                          <li><a href="#">Q</a></li>
+                          <li><a href="#">R</a></li>
+                          <li><a href="#">S</a></li>
+                          <li><a href="#">T</a></li>
+                          <li><a href="#">U</a></li>
+                          <li><a href="#">V</a></li>
+                          <li class="active"><a href="#">W</a></li>
+                          <li><a href="#">X</a></li>
+                          <li><a href="#">Y</a></li>
+                          <li><a href="#">Z</a></li>
+                      </ul>
+                  </div>
+                  <div class="address_cont fright">
+                      <div class="fright">
+                          <ul class="menu_supplier">
+                              <li><a href="#"><img src="img/suppl_hat.png"></a></li>
+                              <li><a href="#"><img src="img/suppl_print.png"></a></li>
+                              <li><a href="#"><img src="img/suppl_conv.png"></a></li>
+                              <li><a href="#"><img src="img/suppl_cancel.png"></a></li>
+                              <li><a href="#"><img src="img/suppl_message.png"></a></li>
+                              <li><a href="#"><img src="img/suppl_kino.png"></a></li>
+                          </ul>
+                      </div>
+                      <div class="clear"></div>
+
+                      <div style="height: 500px; width: 610px; overflow: auto;">
+                      <div class="contacts_item adrress_width">
+                          <div class="left_right adress_page">
+                              <div class="fleft">
+                                  <div class="edit_info">
+                                      <span class="names_edit">Company/Name:</span>
+                                      <input type="text" value="Wayne Hodkinson">
+                                  </div>
+                                  <div class="edit_info">
+                                      <span class="fleft names_edit">Address:</span>
+                                      <textarea cols="23" rows="4">123 Any Road, Randomsvile, Yourshire, AB1 2DC</textarea>
+                                  </div>
+                                  <div class="edit_info">
+                                      <span class="names_edit">Tel:</span>
+                                      <input type="text" value="01234 567890">
+                                  </div>
+                                  <div class="edit_info">
+                                      <span class="names_edit">Email:</span>
+                                      <input type="text" value="wayne@yor.co.uk">
+                                  </div>
+                                  <div class="edit_info">
+                                      <span class="names_edit">Web Address:</span>
+                                      <input type="text" value="http://www.yor.co.uk">
+                                  </div>
+                                  <div class="edit_info">
+                                      <span class="names_edit">Social Media:</span>
+                              <span>
+                                  <a href="#"><img src="img/facebook.png"></a>
+                                  <a href="#"><img src="img/tweetr.png"></a>
+                              </span>
+                                  </div>
+                              </div>
+                              <div class="fright ivan_portrait">
+                                  <img src="img/ivan.png">
+                                  <p><strong>Birthday</strong></p>
+                                  <p>09/10/1978</p>
+                              </div>
+                          </div>
+                          <div class="textarea_suppl">
+                              <table class="table table-bordered">
+                                  <thead>
+                                  <tr>
+                                      <th>DATES</th>
+                                      <th>NOTES</th>
+                                  </tr>
+                                  </thead>
+                                  <tbody>
+                                  <tr>
+                                      <td>23/05/2009</td>
+                                      <td>IOU to Joe - $50</td>
+                                  </tr>
+                                  <tr>
+                                      <td></td>
+                                      <td></td>
+                                  </tr>
+                                  <tr>
+                                      <td></td>
+                                      <td></td>
+                                  </tr>
+                                  <tr>
+                                      <td></td>
+                                      <td></td>
+                                  </tr>
+
+
+                                  </tbody>
+                              </table>
+                          </div>
+                      </div>
+                                            <div class="contacts_item adrress_width">
+                          <div class="left_right adress_page">
+                              <div class="fleft">
+                                  <div class="edit_info">
+                                      <span class="names_edit">Company/Name:</span>
+                                      <input type="text" value="Wayne Hodkinson">
+                                  </div>
+                                  <div class="edit_info">
+                                      <span class="fleft names_edit">Address:</span>
+                                      <textarea cols="23" rows="4">123 Any Road, Randomsvile, Yourshire, AB1 2DC</textarea>
+                                  </div>
+                                  <div class="edit_info">
+                                      <span class="names_edit">Tel:</span>
+                                      <input type="text" value="01234 567890">
+                                  </div>
+                                  <div class="edit_info">
+                                      <span class="names_edit">Email:</span>
+                                      <input type="text" value="wayne@yor.co.uk">
+                                  </div>
+                                  <div class="edit_info">
+                                      <span class="names_edit">Web Address:</span>
+                                      <input type="text" value="http://www.yor.co.uk">
+                                  </div>
+                                  <div class="edit_info">
+                                      <span class="names_edit">Social Media:</span>
+                              <span>
+                                  <a href="#"><img src="img/facebook.png"></a>
+                                  <a href="#"><img src="img/tweetr.png"></a>
+                              </span>
+                                  </div>
+                              </div>
+                              <div class="fright ivan_portrait">
+                                  <img src="img/ivan.png">
+                                  <p><strong>Birthday</strong></p>
+                                  <p>09/10/1978</p>
+                              </div>
+                          </div>
+                          <div class="textarea_suppl">
+                              <table class="table table-bordered">
+                                  <thead>
+                                  <tr>
+                                      <th>DATES</th>
+                                      <th>NOTES</th>
+                                  </tr>
+                                  </thead>
+                                  <tbody>
+                                  <tr>
+                                      <td>23/05/2009</td>
+                                      <td>IOU to Joe - $50</td>
+                                  </tr>
+                                  <tr>
+                                      <td></td>
+                                      <td></td>
+                                  </tr>
+                                  <tr>
+                                      <td></td>
+                                      <td></td>
+                                  </tr>
+                                  <tr>
+                                      <td></td>
+                                      <td></td>
+                                  </tr>
+
+                                  <tr>
+                                      <td></td>
+                                      <td></td>
+                                  </tr>
+                                  <tr>
+                                      <td></td>
+                                      <td></td>
+                                  </tr>
+                                  <tr>
+                                      <td></td>
+                                      <td></td>
+                                  </tr>
+
+                                  <tr>
+                                      <td></td>
+                                      <td></td>
+                                  </tr>
+                                  <tr>
+                                      <td></td>
+                                      <td></td>
+                                  </tr>
+                                  <tr>
+                                      <td></td>
+                                      <td></td>
+                                  </tr>
+
+                                  </tbody>
+                              </table>
+                          </div>
+                      </div>
+
+                                            <div class="contacts_item adrress_width">
+                          <div class="left_right adress_page">
+                              <div class="fleft">
+                                  <div class="edit_info">
+                                      <span class="names_edit">Company/Name:</span>
+                                      <input type="text" value="Wayne Hodkinson">
+                                  </div>
+                                  <div class="edit_info">
+                                      <span class="fleft names_edit">Address:</span>
+                                      <textarea cols="23" rows="4">123 Any Road, Randomsvile, Yourshire, AB1 2DC</textarea>
+                                  </div>
+                                  <div class="edit_info">
+                                      <span class="names_edit">Tel:</span>
+                                      <input type="text" value="01234 567890">
+                                  </div>
+                                  <div class="edit_info">
+                                      <span class="names_edit">Email:</span>
+                                      <input type="text" value="wayne@yor.co.uk">
+                                  </div>
+                                  <div class="edit_info">
+                                      <span class="names_edit">Web Address:</span>
+                                      <input type="text" value="http://www.yor.co.uk">
+                                  </div>
+                                  <div class="edit_info">
+                                      <span class="names_edit">Social Media:</span>
+                              <span>
+                                  <a href="#"><img src="img/facebook.png"></a>
+                                  <a href="#"><img src="img/tweetr.png"></a>
+                              </span>
+                                  </div>
+                              </div>
+                              <div class="fright ivan_portrait">
+                                  <img src="img/ivan.png">
+                                  <p><strong>Birthday</strong></p>
+                                  <p>09/10/1978</p>
+                              </div>
+                          </div>
+                          <div class="textarea_suppl">
+                              <table class="table table-bordered">
+                                  <thead>
+                                  <tr>
+                                      <th>DATES</th>
+                                      <th>NOTES</th>
+                                  </tr>
+                                  </thead>
+                                  <tbody>
+                                  <tr>
+                                      <td>23/05/2009</td>
+                                      <td>IOU to Joe - $50</td>
+                                  </tr>
+                                  <tr>
+                                      <td></td>
+                                      <td></td>
+                                  </tr>
+                                  <tr>
+                                      <td></td>
+                                      <td></td>
+                                  </tr>
+                                  <tr>
+                                      <td></td>
+                                      <td></td>
+                                  </tr>
+
+                                  <tr>
+                                      <td></td>
+                                      <td></td>
+                                  </tr>
+                                  <tr>
+                                      <td></td>
+                                      <td></td>
+                                  </tr>
+                                  <tr>
+                                      <td></td>
+                                      <td></td>
+                                  </tr>
+
+                                  <tr>
+                                      <td></td>
+                                      <td></td>
+                                  </tr>
+                                  <tr>
+                                      <td></td>
+                                      <td></td>
+                                  </tr>
+                                  <tr>
+                                      <td></td>
+                                      <td></td>
+                                  </tr>
+
+                                  </tbody>
+                              </table>
+                          </div>
+                      </div>
+</div>
+
+                  </div>
+                </div>
+                <div class="budget">
+                    <div class="fleft white">BUDGET £ 1,000.00</div>
+                    <div class="fright green">ACTUAL £500.00</div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="footer">
+    </div>
+</div>
+</body>
+</html>

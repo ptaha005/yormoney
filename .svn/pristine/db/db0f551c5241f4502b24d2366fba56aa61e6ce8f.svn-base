@@ -1,0 +1,125 @@
+package com.codexsoft.yormoney.controller;
+
+import com.codexsoft.yormoney.AbstractContextControllerTests;
+import org.apache.log4j.Logger;
+import org.junit.Test;
+import org.junit.runner.RunWith;
+import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
+import org.springframework.test.context.transaction.TransactionConfiguration;
+
+
+import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
+import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
+import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.content;
+import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
+
+@RunWith(SpringJUnit4ClassRunner.class)
+@TransactionConfiguration
+public class InsuranceControllerTest extends AbstractContextControllerTests {
+
+    private final Logger log = Logger.getLogger(InsuranceControllerTest.class);
+
+    @Test
+    public void addInsurance() throws Exception{
+        log.info("Class InsuranceController, method - /insurance/add POST , testing");
+    }
+
+    @Test
+    public void productInfo() throws Exception{
+        log.info("Class InsuranceController, method - /insurance/productInfo GET, testing");
+    }
+
+    @Test
+    public void init() throws Exception{
+        log.info("Class InsuranceController, method - /insurance/init GET, testing");
+    }
+
+    @Test
+    public void addNotes() throws Exception {
+        log.info("Class InsuranceController, method - /insurance/notes POST, testing");
+    }
+
+    @Test
+    public void getNotes() throws Exception {
+        log.info("Class InsuranceController, method - /insurance/notes GET, testing");
+    }
+
+    @Test
+    public void getAddress() throws Exception {
+        log.info("Class InsuranceController, method - /insurance/address GET, testing");
+
+    }
+
+    @Test
+    public void getAddressById() throws Exception {
+        log.info("Class InsuranceController, method - /insurance/address/{addressId} GET, testing");
+
+    }
+
+    @Test
+    public void addAddress() throws Exception {
+        log.info("Class InsuranceController, method - /insurance/address POST, testing");
+
+    }
+
+    @Test
+    public void updateAddress() throws Exception{
+        log.info("Class InsuranceController, method - /insurance/address PUT, testing");
+    }
+
+    @Test
+    public void deleteAddress() throws Exception{
+        log.info("Class InsuranceController, method - /insurance/address DELETE, testing");
+
+    }
+
+    @Test
+    public void getPhone() throws Exception {
+        log.info("Class InsuranceController, method - /insurance/phone GET, testing");
+    }
+
+    @Test
+    public void getPhoneById() throws Exception {
+        log.info("Class InsuranceController, method - /insurance/phone/{phoneId} GET, testing");
+    }
+
+    @Test
+    public void addPhone() throws Exception {
+        log.info("Class InsuranceController, method - /insurance/phone POST, testing");
+    }
+
+    @Test
+    public void updatePhone() throws Exception{
+        log.info("Class InsuranceController, method - /insurance/phone PUT, testing");
+    }
+
+    @Test
+    public void deletePhone() throws Exception{
+        log.info("Class InsuranceController, method - /insurance/phone DELETE, testing");
+    }
+
+    @Test
+    public void getEmail() throws Exception {
+        log.info("Class InsuranceController, method - /insurance/email GET, testing");
+    }
+
+    @Test
+    public void getEmailById() throws Exception {
+        log.info("Class InsuranceController, method - /insurance/email/{emailId} GET, testing");
+    }
+
+    @Test
+    public void addEmail() throws Exception {
+        log.info("Class InsuranceController, method - /insurance/email POST, testing");
+    }
+
+    @Test
+    public void updateEmail() throws Exception{
+        log.info("Class InsuranceController, method - /insurance/email PUT, testing");
+    }
+
+    @Test
+    public void deleteEmail() throws Exception{
+        log.info("Class InsuranceController, method - /insurance/email DELETE, testing");
+    }
+}

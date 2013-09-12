@@ -1,0 +1,1 @@
+define(["knockout","jquery","text!./../templates/ProductInfo.html","vent","ko.mapping","core"],function(e,t,n,r,i,s){return function(t){var i=this;i.tab=t.tab,i.content=e.region(),i.showVideo=function(){r.trigger("showHowToVidio","income")},i.remove=function(){r.trigger("deleteFileOrFolder")},i.edit=function(){r.trigger("createFolder")},i.template=n}})

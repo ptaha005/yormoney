@@ -1,0 +1,31 @@
+INSERT INTO event_expenditure_level (id, name, order_level) VALUES (1, 'first', 1);
+INSERT INTO event_expenditure_level (id, name, order_level) VALUES (2, 'second', 2);
+INSERT INTO event_expenditure_level (id, name, order_level) VALUES (3, 'third', 3);
+INSERT INTO event_expenditure_level (id, name, order_level) VALUES (4, 'fourth', 4);
+
+INSERT INTO event_expenditure_type (id, name, level_id, type_id) VALUES (1, 'Christmas', 1, 0);
+INSERT INTO event_expenditure_type (id, name, level_id, type_id) VALUES (2, 'Birthdays', 1, 0);
+INSERT INTO event_expenditure_type (id, name, level_id, type_id) VALUES (3, 'Holidays', 1, 0);
+INSERT INTO event_expenditure_type (id, name, level_id, type_id) VALUES (4, 'Home', 1, 0);
+INSERT INTO event_expenditure_type (id, name, level_id, type_id) VALUES (5, 'Holiday deposit', 2, 3);
+INSERT INTO event_expenditure_type (id, name, level_id, type_id) VALUES (6, 'Holiday final payment', 2, 3);
+INSERT INTO event_expenditure_type (id, name, level_id, type_id) VALUES (7, 'Spending Money', 2, 3);
+INSERT INTO event_expenditure_type (id, name, level_id, type_id) VALUES (8, 'Travel transfer cost', 2, 3);
+INSERT INTO event_expenditure_type (id, name, level_id, type_id) VALUES (9, 'Closing', 2, 3);
+INSERT INTO event_expenditure_type (id, name, level_id, type_id) VALUES (10, 'Gift for self and partner', 2, 1);
+INSERT INTO event_expenditure_type (id, name, level_id, type_id) VALUES (11, 'Gift for children', 2, 1);
+INSERT INTO event_expenditure_type (id, name, level_id, type_id) VALUES (12, 'Gift for other family members', 2, 1);
+INSERT INTO event_expenditure_type (id, name, level_id, type_id) VALUES (13, 'Christmas parties', 2, 1);
+INSERT INTO event_expenditure_type (id, name, level_id, type_id) VALUES (14, 'Parents', 3, 12);
+INSERT INTO event_expenditure_type (id, name, level_id, type_id) VALUES (15, 'Brothers and Sisters', 3, 12);
+INSERT INTO event_expenditure_type (id, name, level_id, type_id) VALUES (16, 'Grandparents', 3, 12);
+INSERT INTO event_expenditure_type (id, name, level_id, type_id) VALUES (17, 'Cousins', 3, 12);
+INSERT INTO event_expenditure_type (id, name, level_id, type_id) VALUES (18, 'Ben', 4, 15);
+INSERT INTO event_expenditure_type (id, name, level_id, type_id) VALUES (19, 'Mark', 4, 15);
+INSERT INTO event_expenditure_type (id, name, level_id, type_id) VALUES (20, 'Susan', 4, 15);
+
+INSERT INTO event (id, agreed_spend, date, user_id, event_expenditure_type, active) VALUES (1, 200, null, 1, 2, true);
+INSERT INTO event (id, agreed_spend, date, user_id, event_expenditure_type, active) VALUES (2, 100, null, 1, 10, true);
+INSERT INTO event (id, agreed_spend, date, user_id, event_expenditure_type, active) VALUES (3, 1000, null, 1, 11, true);
+INSERT INTO event (id, agreed_spend, date, user_id, event_expenditure_type, active) VALUES (4, 100, null, 1, 3, true);
+INSERT INTO event (id, agreed_spend, date, user_id, event_expenditure_type, active) VALUES (5, 100, null, 1, 5, true);

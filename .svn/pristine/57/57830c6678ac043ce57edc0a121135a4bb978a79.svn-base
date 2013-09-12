@@ -1,0 +1,1 @@
+define(["knockout","jquery","text!./../templates/DemoPage.html","vent"],function(e,t,n,r){return function(){var e=this;e.next=function(){document.location="#/home"},e.exit=function(){r.trigger("logout")},e.template=n}})

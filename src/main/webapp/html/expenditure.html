@@ -1,0 +1,683 @@
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta charset="utf-8">
+    <title>Y&ouml;r  - Expenditure</title>
+    <link rel="stylesheet" type="text/css" href="css/selectbox.css">
+
+    <style type="text/css" title="currentStyle">
+        @import "datatable/demo_page.css";
+        @import "datatable/demo_table.css";
+    </style>
+
+    <script type="text/javascript" language="javascript" src="app/lib/datatable/jquery.js"></script>
+    <script type="text/javascript" language="javascript" src="app/lib/datatable/jquery.dataTables.js"></script>
+    <script src="app/lib/jquery.selectbox.js"></script>
+    <script src="app/lib/form-elements.js"></script>
+
+    <link href="app/lib/bootstrap/css/bootstrap.css" rel="stylesheet">
+    <link href="css/style.css" rel="stylesheet">
+    <style>
+
+        .modal-open {
+            overflow: hidden;
+        }
+
+
+            /* add a scroll bar to stop page from jerking around */
+        .modal-open.page-overflow .page-container,
+        .modal-open.page-overflow .page-container .navbar-fixed-top,
+        .modal-open.page-overflow .page-container .navbar-fixed-bottom,
+        .modal-open.page-overflow .modal-scrollable {
+            overflow-y: scroll;
+        }
+
+        @media (max-width: 979px) {
+            .modal-open.page-overflow .page-container .navbar-fixed-top,
+            .modal-open.page-overflow .page-container .navbar-fixed-bottom  {
+                overflow-y: visible;
+            }
+        }
+
+
+        .modal-scrollable {
+            position: fixed;
+            top: 0;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            overflow: auto;
+        }
+
+        .modal {
+            outline: none;
+            position: absolute;
+            margin-top: 0;
+            top: 50%;
+            overflow: visible; /* allow content to popup out (i.e tooltips) */
+        }
+
+        .modal.fade {
+            top: -100%;
+            -webkit-transition: opacity 0.3s linear, top 0.3s ease-out, bottom 0.3s ease-out, margin-top 0.3s ease-out;
+            -moz-transition: opacity 0.3s linear, top 0.3s ease-out, bottom 0.3s ease-out, margin-top 0.3s ease-out;
+            -o-transition: opacity 0.3s linear, top 0.3s ease-out, bottom 0.3s ease-out, margin-top 0.3s ease-out;
+            transition: opacity 0.3s linear, top 0.3s ease-out, bottom 0.3s ease-out, margin-top 0.3s ease-out;
+        }
+
+        .modal.fade.in {
+            top: 60%;
+        }
+
+        .modal-body {
+            max-height: none;
+            overflow: visible;
+        }
+
+        .modal.modal-absolute {
+            position: absolute;
+            z-index: 9999950;
+        }
+
+        .modal .loading-mask {
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: #fff;
+            border-radius: 6px;
+        }
+
+        .modal-backdrop.modal-absolute{
+            position: absolute;
+            z-index: 9999950;
+        }
+
+        .modal-backdrop,
+        .modal-backdrop.fade.in{
+            opacity: 0.7;
+            filter: alpha(opacity=70);
+            /*background: #fff;*/
+        }
+
+        .modal.container {
+            width: 940px;
+            margin-left: -470px;
+        }
+
+            /* Modal Overflow */
+
+        .modal-overflow.modal {
+            top: 1%;
+        }
+
+        .modal-overflow.modal.fade {
+            top: -100%;
+        }
+
+        .modal-overflow.modal.fade.in {
+            top: 1%;
+        }
+
+        .modal-overflow .modal-body {
+            overflow: auto;
+            -webkit-overflow-scrolling: touch;
+        }
+    </style>
+
+    <script type="text/javascript" charset="utf-8">
+        $(document).ready(function() {
+            $('#example').dataTable( {
+                "sScrollY": "271px",
+                "bPaginate": false,
+                "bScrollCollapse": true
+            } );
+        } );
+    </script>
+    <script>
+        (function($) {
+            $(function() {
+
+                $('select').selectbox();
+
+                $('#add').click(function(e) {
+                    $(this).parents('div.section').append('<br /><br /><select><option>-- Выберите --</option><option>Пункт 1</option><option>Пункт 2</option><option>Пункт 3</option><option>Пункт 4</option><option>Пункт 5</option></select>');
+                    $('select').selectbox();
+                    e.preventDefault();
+                })
+
+                $('#add2').click(function(e) {
+                    var options = '';
+                    for (i = 1; i <= 5; i++) {
+                        options += '<option>Option ' + i + '</option>';
+                    }
+                    $(this).parents('div.section').find('select').each(function() {
+                        $(this).append(options);
+                    })
+                    $('select').trigger('refresh');
+                    e.preventDefault();
+                })
+
+                $('#che').click(function(e) {
+                    $(this).parents('div.section').find('option:nth-child(5)').attr('selected', true);
+                    $('select').trigger('refresh');
+                    e.preventDefault();
+                })
+
+            })
+        })(jQuery)
+    </script>
+</head>
+<body>
+<div class="bckg_page">
+<div id="header">
+    <div id="logo"><a href="#"></a></div>
+    <div id="exit"><a class="exit" href="#"></a></div>
+</div>
+<div id="content" class="registr_page">
+<div class="title_form"><span class="title">Y&ouml;r - Regular Expenditure</span></div>
+<div class="bckgr_full">
+<div class="income_page expend_page">
+<div class="income_bckgr">
+    <div class="income_top">
+        <span class="image"></span>
+        <div class="inline title_text">
+            <p class="title">Start Up Wizard</p>
+            <p class="under_title">Regular Expenditure</p>
+        </div>
+    </div>
+    <div class="inputs button fright">
+        <p>Category
+            <select>
+                <option>Please select...</option>
+                <option>Please select...</option>
+                <option>Please select...</option>
+                <option>Please select...</option>
+            </select>
+        </p>
+        <p>Expenditure Type
+            <select>
+                <option>Please select...</option>
+                <option>Please select...</option>
+                <option>Please select...</option>
+                <option>Please select...</option>
+            </select>
+        </p>
+        <div class="editdel">
+            <a data-toggle="modal" href="#myModal" class="butt edit">Categories</a>
+            <a href="#" class="butt expenditure">Add to expenditure list</a>
+        </div>
+
+        <div id="myModal" class="modal hide fade container_modal" >
+            <div class="modal_content expend_modal">
+                <h3>Categories</h3>
+                <div class="members_sum mright">
+                    <p class="h3"><span class="value_sum">House</span><span class="green price_sum">$6543</span></p>
+                    <p class="italic"><span class="value_sum">Bills</span><span class="price_sum">$300</span></p>
+                    <p class="italic"><span class="value_sum">Supermarket Shop</span><span class="price_sum">$200</span></p>
+                    <p class="italic"><span class="value_sum">Family Entertainment</span><span class="price_sum">$150</span></p>
+                    <p class="italic"><span class="value_sum">Pets</span><span class="price_sum">$30</span></p>
+                    <p class="italic"><span class="value_sum">Misc Household Costs</span><span class="price_sum red">No input!</span></p>
+                </div>
+                <div class="members_sum mright">
+                    <p class="h3"><span class="value_sum">Transport</span><span class="green price_sum">$300</span></p>
+                    <p class="italic"><span class="value_sum">Motor Vehicle #1</span><span class="price_sum">$300</span></p>
+                    <p class="italic"><span class="value_sum">Motor Vehicle #2</span><span class="price_sum red">No input!</span></p>
+                    <p class="italic"><span class="value_sum">Public Transport</span><span class="price_sum red">No input!</span></p>
+                    <p class="italic"><span class="value_sum">Motor Bike</span><span class="price_sum red">No input!</span></p>
+                    <p class="italic"><span class="value_sum">Caravan/Boat</span><span class="price_sum red">No input!</span></p>
+                </div>
+                <div class="members_sum ">
+                    <p class="h3"><span class="value_sum">Transport</span><span class="green price_sum">$300</span></p>
+                    <p class="italic"><span class="value_sum">Motor Vehicle #1</span><span class="price_sum">$300</span></p>
+                    <p class="italic"><span class="value_sum">Motor Vehicle #2</span><span class="price_sum red">No input!</span></p>
+                    <p class="italic"><span class="value_sum">Public Transport</span><span class="price_sum red">No input!</span></p>
+                    <p class="italic"><span class="value_sum">Motor Bike</span><span class="price_sum red">No input!</span></p>
+                    <p class="italic"><span class="value_sum">Caravan/Boat</span><span class="price_sum red">No input!</span></p>
+                </div>
+                <div class="members_sum mright">
+                    <p class="h3"><span class="value_sum">House</span><span class="green price_sum">$6543</span></p>
+                    <p class="italic"><span class="value_sum">Bills</span><span class="price_sum">$300</span></p>
+                    <p class="italic"><span class="value_sum">Supermarket Shop</span><span class="price_sum">$200</span></p>
+                    <p class="italic"><span class="value_sum">Family Entertainment</span><span class="price_sum">$150</span></p>
+                    <p class="italic"><span class="value_sum">Pets</span><span class="price_sum">$30</span></p>
+                    <p class="italic"><span class="value_sum">Misc Household Costs</span><span class="price_sum red">No input!</span></p>
+                </div>
+                <div class="members_sum mright">
+                    <p class="h3"><span class="value_sum">Transport</span><span class="green price_sum">$300</span></p>
+                    <p class="italic"><span class="value_sum">Motor Vehicle #1</span><span class="price_sum">$300</span></p>
+                    <p class="italic"><span class="value_sum">Motor Vehicle #2</span><span class="price_sum red">No input!</span></p>
+                    <p class="italic"><span class="value_sum">Public Transport</span><span class="price_sum red">No input!</span></p>
+                    <p class="italic"><span class="value_sum">Motor Bike</span><span class="price_sum red">No input!</span></p>
+                    <p class="italic"><span class="value_sum">Caravan/Boat</span><span class="price_sum red">No input!</span></p>
+                </div>
+                <div class="members_sum">
+                    <p class="h3"><span class="value_sum">Transport</span><span class="green price_sum">$300</span></p>
+                    <p class="italic"><span class="value_sum">Motor Vehicle #1</span><span class="price_sum">$300</span></p>
+                    <p class="italic"><span class="value_sum">Motor Vehicle #2</span><span class="price_sum red">No input!</span></p>
+                    <p class="italic"><span class="value_sum">Public Transport</span><span class="price_sum red">No input!</span></p>
+                    <p class="italic"><span class="value_sum">Motor Bike</span><span class="price_sum red">No input!</span></p>
+                    <p class="italic"><span class="value_sum">Caravan/Boat</span><span class="price_sum red">No input!</span></p>
+                </div>
+                <div class="clear"></div>
+                <a href="#" class="butt edit" data-dismiss="modal">Close</a>
+            </div>
+        </div>
+    </div>
+</div>
+<div  style="width: 98%">
+<table cellpadding="0" cellspacing="0" border="0" class="display" id="example" width="100%">
+<thead>
+<tr class="tr_color">
+    <th class="sorting_asc width60">Do you have this cost?</th>
+    <th class="width60">Expenditure list</th>
+    <th class="sorting_asc">Company name</th>
+    <th class="sorting_asc">Whose cost?</th>
+    <th  class="sorting_asc">Paid on Date/Day</th>
+    <th class="sorting_asc">Frequency</th>
+    <th>Amount</th>
+    <th>Paid to A/C</th>
+    <th class="sorting_asc width60">Additional questions</th>
+</tr>
+</thead>
+<tbody data-bind="foreach : items">
+<tr class="gradeC ">
+    <td class="center"><input type="checkbox" class="styled"></td>
+    <td class="center">Salary</td>
+    <td class="center"><input type="text" class="input_table" placeholder="Type here..."></td>
+    <td class="center">
+        <select>
+            <option>Select...</option>
+            <option>Select</option>
+            <option>Select</option>
+            <option>Select</option>
+        </select>
+    </td>
+    <td class="center select_top">
+        <div class="checkbox_table">
+            <p>Day<input type="radio" name="value" value="1"></p>
+            <p>Date<input type="radio" name="value" value="2"></p>
+        </div>
+        <select class="select_table">
+            <option>Select...</option>
+            <option>Select...</option>
+            <option>Select...</option>
+        </select>
+    </td>
+    <td class="center">
+        <select>
+            <option>Select...</option>
+            <option>Select...</option>
+            <option>Select...</option>
+        </select>
+    </td>
+    <td class="center"><input type="text" class="input_table" placeholder="Type here..."></td>
+    <td class="center">
+        <select>
+            <option>Select...</option>
+            <option>Select...</option>
+            <option>Select...</option>
+        </select>
+    </td>
+    <td class="center">N/A</td>
+</tr>
+<tr class="gradeC">
+    <td class="center"><input type="checkbox" class="styled"></td>
+    <td class="center">Salary</td>
+    <td class="center"><input type="text" class="input_table" placeholder="Type here..."></td>
+    <td class="center">
+        <select>
+            <option>Select...</option>
+            <option>Select</option>
+            <option>Select</option>
+            <option>Select</option>
+        </select>
+    </td>
+    <td class="center select_top">
+        <div class="checkbox_table">
+            <p>Day<input type="radio" name="value" value="1"></p>
+            <p>Date<input type="radio" name="value" value="2"></p>
+        </div>
+        <select class="select_table">
+            <option>Select...</option>
+            <option>Select...</option>
+            <option>Select...</option>
+        </select>
+    </td>
+    <td class="center">
+        <select>
+            <option>Select...</option>
+            <option>Select...</option>
+            <option>Select...</option>
+        </select>
+    </td>
+    <td class="center"><input type="text" class="input_table" placeholder="Type here..."></td>
+    <td class="center">
+        <select>
+            <option>Select...</option>
+            <option>Select...</option>
+            <option>Select...</option>
+        </select>
+    </td>
+    <td class="center">N/A</td>
+</tr>
+<tr class="gradeC">
+    <td class="center"><input type="checkbox" class="styled"></td>
+    <td class="center">sSalary</td>
+    <td class="center"><input type="text" class="input_table" placeholder="Type here..."></td>
+    <td class="center">
+        <select>
+            <option>Select...</option>
+            <option>Select</option>
+            <option>Select</option>
+            <option>Select</option>
+        </select>
+    </td>
+    <td class="center select_top">
+        <div class="checkbox_table">
+            <p>Day<input type="radio" name="value" value="1"></p>
+            <p>Date<input type="radio" name="value" value="2"></p>
+        </div>
+        <select class="select_table">
+            <option>Select...</option>
+            <option>Select...</option>
+            <option>Select...</option>
+        </select>
+    </td>
+    <td class="center">
+        <select>
+            <option>Select...</option>
+            <option>Select...</option>
+            <option>Select...</option>
+        </select>
+    </td>
+    <td class="center"><input type="text" class="input_table" placeholder="Type here..."></td>
+    <td class="center">
+        <select>
+            <option>Select...</option>
+            <option>Select...</option>
+            <option>Select...</option>
+        </select>
+    </td>
+    <td class="center">N/A</td>
+</tr>
+<tr class="gradeC">
+    <td class="center"><input type="checkbox" class="styled"></td>
+    <td class="center">sSalary</td>
+    <td class="center"><input type="text" class="input_table" placeholder="Type here..."></td>
+    <td class="center">
+        <select>
+            <option>Select...</option>
+            <option>Select</option>
+            <option>Select</option>
+            <option>Select</option>
+        </select>
+    </td>
+    <td class="center select_top">
+        <div class="checkbox_table">
+            <p>Day<input type="radio" name="value" value="1"></p>
+            <p>Date<input type="radio" name="value" value="2"></p>
+        </div>
+        <select class="select_table">
+            <option>Select...</option>
+            <option>Select...</option>
+            <option>Select...</option>
+        </select>
+    </td>
+    <td class="center">
+        <select>
+            <option>Select...</option>
+            <option>Select...</option>
+            <option>Select...</option>
+        </select>
+    </td>
+    <td class="center"><input type="text" class="input_table" placeholder="Type here..."></td>
+    <td class="center">
+        <select>
+            <option>Select...</option>
+            <option>Select...</option>
+            <option>Select...</option>
+        </select>
+    </td>
+    <td class="center">N/A</td>
+</tr>
+<tr class="gradeC">
+    <td class="center"><input type="checkbox" class="styled"></td>
+    <td class="center">Salary</td>
+    <td class="center"><input type="text" class="input_table" placeholder="Type here..."></td>
+    <td class="center">
+        <select>
+            <option>fSelect...</option>
+            <option>Select</option>
+            <option>Select</option>
+            <option>Select</option>
+        </select>
+    </td>
+    <td class="center select_top">
+        <div class="checkbox_table">
+            <p>Day<input type="radio" name="value" value="1"></p>
+            <p>Date<input type="radio" name="value" value="2"></p>
+        </div>
+        <select class="select_table">
+            <option>Select...</option>
+            <option>Select...</option>
+            <option>Select...</option>
+        </select>
+    </td>
+    <td class="center">
+        <select>
+            <option>Select...</option>
+            <option>Select...</option>
+            <option>Select...</option>
+        </select>
+    </td>
+    <td class="center"><input type="text" class="input_table" placeholder="Type here..."></td>
+    <td class="center">
+        <select>
+            <option>Select...</option>
+            <option>Select...</option>
+            <option>Select...</option>
+        </select>
+    </td>
+    <td class="center">N/A</td>
+</tr>
+<tr class="gradeC">
+    <td class="center"><input type="checkbox" class="styled"></td>
+    <td class="center">Salary</td>
+    <td class="center"><input type="text" class="input_table" placeholder="Type here..."></td>
+    <td class="center">
+        <select>
+            <option>Seglect...</option>
+            <option>Select</option>
+            <option>Select</option>
+            <option>Select</option>
+        </select>
+    </td>
+    <td class="center select_top">
+        <div class="checkbox_table">
+            <p>Day<input type="radio" name="value" value="1"></p>
+            <p>Date<input type="radio" name="value" value="2"></p>
+        </div>
+        <select class="select_table">
+            <option>Select...</option>
+            <option>Select...</option>
+            <option>Select...</option>
+        </select>
+    </td>
+    <td class="center">
+        <select>
+            <option>Select...</option>
+            <option>Select...</option>
+            <option>Select...</option>
+        </select>
+    </td>
+    <td class="center"><input type="text" class="input_table" placeholder="Type here..."></td>
+    <td class="center">
+        <select>
+            <option>Select...</option>
+            <option>Select...</option>
+            <option>Select...</option>
+        </select>
+    </td>
+    <td class="center">N/A</td>
+</tr>
+<tr class="gradeC">
+    <td class="center"><input type="checkbox" class="styled"></td>
+    <td class="center">Sarglary</td>
+    <td class="center"><input type="text" class="input_table" placeholder="Type here..."></td>
+    <td class="center">
+        <select>
+            <option>Select...</option>
+            <option>Select</option>
+            <option>Select</option>
+            <option>Select</option>
+        </select>
+    </td>
+    <td class="center select_top">
+        <div class="checkbox_table">
+            <p>Day<input type="radio" name="value" value="1"></p>
+            <p>Date<input type="radio" name="value" value="2"></p>
+        </div>
+        <select class="select_table">
+            <option>Select...</option>
+            <option>Select...</option>
+            <option>Select...</option>
+        </select>
+    </td>
+    <td class="center">
+        <select>
+            <option>Select...</option>
+            <option>Select...</option>
+            <option>Select...</option>
+        </select>
+    </td>
+    <td class="center"><input type="text" class="input_table" placeholder="Type here..."></td>
+    <td class="center">
+        <select>
+            <option>Select...</option>
+            <option>Select...</option>
+            <option>Select...</option>
+        </select>
+    </td>
+    <td class="center">N/A</td>
+</tr>
+<tr class="gradeC">
+    <td class="center"><input type="checkbox" class="styled"></td>
+    <td class="center">Salfhhary</td>
+    <td class="center"><input type="text" class="input_table" placeholder="Type here..."></td>
+    <td class="center">
+        <select>
+            <option>Select...</option>
+            <option>Select</option>
+            <option>Select</option>
+            <option>Select</option>
+        </select>
+    </td>
+    <td class="center select_top">
+        <div class="checkbox_table">
+            <p>Day<input type="radio" name="value" value="1"></p>
+            <p>Date<input type="radio" name="value" value="2"></p>
+        </div>
+        <select class="select_table">
+            <option>Select...</option>
+            <option>Select...</option>
+            <option>Select...</option>
+        </select>
+    </td>
+    <td class="center">
+        <select>
+            <option>Select...</option>
+            <option>Select...</option>
+            <option>Select...</option>
+        </select>
+    </td>
+    <td class="center"><input type="text" class="input_table" placeholder="Type here..."></td>
+    <td class="center">
+        <select>
+            <option>Select...</option>
+            <option>Select...</option>
+            <option>Select...</option>
+        </select>
+    </td>
+    <td class="center">N/A</td>
+</tr>
+<tr class="gradeC">
+    <td class="center"><input type="checkbox" class="styled"></td>
+    <td class="center">Salhary</td>
+    <td class="center"><input type="text" class="input_table" placeholder="Type here..."></td>
+    <td class="center">
+        <select>
+            <option>Select...</option>
+            <option>Select</option>
+            <option>Select</option>
+            <option>Select</option>
+        </select>
+    </td>
+    <td class="center select_top">
+        <div class="checkbox_table">
+            <p>Day<input type="radio" name="value" value="1"></p>
+            <p>Date<input type="radio" name="value" value="2"></p>
+        </div>
+        <select class="select_table">
+            <option>Select...</option>
+            <option>Select...</option>
+            <option>Select...</option>
+        </select>
+    </td>
+    <td class="center">
+        <select>
+            <option>Select...</option>
+            <option>Select...</option>
+            <option>Select...</option>
+        </select>
+    </td>
+    <td class="center"><input type="text" class="input_table" placeholder="Type here..."></td>
+    <td class="center">
+        <select>
+            <option>Select...</option>
+            <option>Select...</option>
+            <option>Select...</option>
+        </select>
+    </td>
+    <td class="center">N/A</td>
+</tr>
+</tbody>
+<tfoot>
+
+</tfoot>
+</table>
+</div>
+<div class="banners">
+    <div class="fleft income_p">
+        <p>Income</p>
+        <p>Running Total</p>
+    </div>
+    <div class="fleft butt_banner">
+        <a href="#" class="nodecor"><div class="price">$2500.00</div></a>
+    </div>
+    <div class="fleft butt_banner">
+        <a href="#"><img src="img/iamdone.png"></a>
+    </div>
+    <div class="fleft butt_banner">
+        <a href="#"> <img src="img/howto.png"></a>
+    </div>
+    <div class="fleft butt_banner">
+        <a href="#"><img src="img/clickvideo.png"></a>
+    </div>
+</div>
+</div>
+</div>
+</div>
+<div id="footer">
+</div>
+</div>
+
+
+<script src="app/lib/form-elements.js"></script>
+
+<script src="app/lib/bootstrap/js/bootstrap.js"></script>
+<script src="app/lib/bootstrap-modalmanager.js"></script>
+<script src="app/lib/bootstrap/js/bootstrap-modal.js"></script>
+</body>
+</html>

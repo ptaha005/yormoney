@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans:beans xmlns="http://www.springframework.org/schema/security"
+             xmlns:beans="http://www.springframework.org/schema/beans"
+             xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+             xsi:schemaLocation=
+             "http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.1.xsd
+		        http://www.springframework.org/schema/security http://www.springframework.org/schema/security/spring-security-3.1.xsd">
+
+    <global-method-security secured-annotations="enabled" pre-post-annotations="enabled"/>
+
+    <http auto-config='false' use-expressions="true" entry-point-ref="failureHandler">
+        <!--<custom-filter ref="authenticationProcessingFilter" position="FORM_LOGIN_FILTER"/>-->
+        <intercept-url pattern="/**" access="permitAll"/>
+        <form-login default-target-url="/signin"/>
+        <logout logout-url="/signout" delete-cookies="JSESSIONID" />
+        <access-denied-handler ref="deniedHandler" />
+    </http>
+
+    <authentication-manager alias="authenticationManager">
+        <authentication-provider ref="usernameAuthenticationProvider"/>
+    </authentication-manager>
+
+    <beans:bean id="deniedHandler" class="org.springframework.security.web.access.AccessDeniedHandlerImpl"/>
+
+    <beans:bean id="failureHandler"
+          class="org.springframework.security.web.authentication.Http403ForbiddenEntryPoint"/>
+
+        <!--<beans:bean id="authenticationProcessingFilter" class="com.codexsoft.yormoney.security.ReCaptchaAuthenticationFilter">-->
+        <!--<beans:property name="authenticationManager" ref="authenticationManager"/>-->
+        <!--<beans:property name="filterProcessesUrl" value="/signin/authenticate"/>-->
+        <!--<beans:property name="authenticationSuccessHandler">-->
+            <!--<beans:bean class="org.springframework.security.web.authentication.SavedRequestAwareAuthenticationSuccessHandler">-->
+                <!--<beans:property name="alwaysUseDefaultTargetUrl" value="true"/>-->
+                <!--<beans:property name="defaultTargetUrl" value="/" />-->
+            <!--</beans:bean>-->
+        <!--</beans:property>-->
+        <!--<beans:property name="authenticationFailureHandler">-->
+            <!--<beans:bean class="org.springframework.security.web.authentication.SimpleUrlAuthenticationFailureHandler">-->
+                <!--<beans:property name="defaultFailureUrl" value="/signin?param.error=bad_credentials" />-->
+            <!--</beans:bean>-->
+        <!--</beans:property>-->
+        <!--<beans:property name="privateKey" value="6LecIN4SAAAAAHlLDamR5OEdCKtveBUtA0DGSgRk"/>-->
+        <!--<beans:property name="postOnly" value="true"/>-->
+    <!--</beans:bean>-->
+    <beans:bean id="usernameAuthenticationProvider" class="com.codexsoft.yormoney.security.UsernameAuthenticationProvider"/>
+</beans:beans>

@@ -1,0 +1,37 @@
+<div class="bckg_page">
+    <div id="header">
+        <div id="logo"><a href="#" data-bind="click : home"></a></div>
+        <div id="exit"><a class="exit" href="#" data-bind="click : exit"></a></div>
+    </div>
+
+    <div id="content" class="registr_page">
+    <div class="title_form"><span class="title" data-bind="html : title"></span></div>
+    <div class="bckgr_full">
+    <div class="income_page">
+        <!-- ko with : content -->
+        <!-- ko template : { html : template } -->
+        <!-- /ko -->
+        <!-- /ko -->    
+
+        <div class="banners">
+            <div class="fleft income_p">
+                <p>Income</p>
+                <p>Running Total</p>
+            </div>
+            <div class="fleft butt_banner">
+                <a href="#" class="nodecor"><div class="price" data-bind="text : total"></div></a>
+            </div>
+            <div class="fleft butt_banner">
+                <a data-bind="click : next" href="#" ><img src="pages/img/iamdone.png"></a>
+            </div>
+            <div class="fleft butt_banner">
+                <a href="#" data-bind="click : showGuides"> <img src="pages/img/howto.png"></a>
+            </div>
+            <div class="fleft butt_banner">
+                <a href="#" data-bind="click : showHowToVidio"><img src="pages/img/clickvideo.png"></a>
+            </div>
+        </div>
+    </div>
+    </div>
+    </div>
+</div>

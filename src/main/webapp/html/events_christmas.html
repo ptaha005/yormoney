@@ -1,0 +1,235 @@
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta charset="utf-8">
+    <title>Y&ouml;r  - Events & One-Off's</title>
+    <link rel="stylesheet" type="text/css" href="css/style.css">
+    <link rel="stylesheet" type="text/css" href="css/selectbox.css">
+    <style type="text/css" title="currentStyle">
+        @import "datatable/demo_page.css";
+        @import "datatable/demo_table.css";
+    </style>
+    <style>
+
+    </style>
+    <script type="text/javascript" language="javascript" src="datatable/jquery.js"></script>
+    <script type="text/javascript" language="javascript" src="datatable/jquery.dataTables.js"></script>
+    <script src="app/lib/jquery.selectbox.js"></script>
+    <script src="app/lib/form-elements.js"></script>
+    <script type="text/javascript" charset="utf-8">
+        $(document).ready(function() {
+            $('#example').dataTable( {
+//                "sScrollY": "271px",
+                "bPaginate": false
+//                "bScrollCollapse": true
+            } );
+        } );
+    </script>
+    <script>
+        (function($) {
+            $(function() {
+
+                $('select').selectbox();
+
+                $('#add').click(function(e) {
+                    $(this).parents('div.section').append('<br /><br /><select><option>-- Выберите --</option><option>Пункт 1</option><option>Пункт 2</option><option>Пункт 3</option><option>Пункт 4</option><option>Пункт 5</option></select>');
+                    $('select').selectbox();
+                    e.preventDefault();
+                })
+
+                $('#add2').click(function(e) {
+                    var options = '';
+                    for (i = 1; i <= 5; i++) {
+                        options += '<option>Option ' + i + '</option>';
+                    }
+                    $(this).parents('div.section').find('select').each(function() {
+                        $(this).append(options);
+                    })
+                    $('select').trigger('refresh');
+                    e.preventDefault();
+                })
+
+                $('#che').click(function(e) {
+                    $(this).parents('div.section').find('option:nth-child(5)').attr('selected', true);
+                    $('select').trigger('refresh');
+                    e.preventDefault();
+                })
+
+            })
+        })(jQuery)
+    </script>
+</head>
+<body>
+<div class="bckg_page">
+    <div id="header">
+        <div id="logo"><a href="#"></a></div>
+        <div id="exit"><a class="exit" href="#"></a></div>
+    </div>
+    <div id="content" class="registr_page">
+        <div class="title_form"><span class="title">Y&ouml;r - Events & One-Off's</span></div>
+        <div class="bckgr_full">
+            <div class="income_page expend_page">
+                <div class="income_bckgr">
+                    <div class="income_top">
+                        <span class="image"></span>
+                        <div class="inline title_text">
+                            <p class="title">Start Up Wizard</p>
+                            <p class="under_title">Events & One-Off's - Christmas</p>
+                        </div>
+                    </div>
+                    <div class="inputs button fright">
+                        <p>Expenditure Type
+                            <select>
+                                <option>Please select...</option>
+                                <option>Please select...</option>
+                                <option>Please select...</option>
+                                <option>Please select...</option>
+                                <option>Please select...</option>
+                                <option>Please select...</option>
+                            </select>
+                        </p>
+                        <div class="editdel">
+                            <a href="#" class="butt edit show_lists">Show me my lists</a>
+                        </div>
+                    </div>
+                </div>
+                <div style="width: 900px">
+                    <table cellpadding="0" cellspacing="0" border="0" class="display event" id="example" width="100%">
+                        <thead>
+                        <tr class="tr_color">
+                            <th style="width: 60px!important;" class="sorting_asc">Do you have this cost?</th>
+                            <th style="width: 180px!important;" >Expenditure Item</th>
+                            <th style="width: 150px!important;" class="sorting_asc">Agreed spend</th>
+                            <th style="width: 80px!important;"  class="sorting_asc">Target date</th>
+                            <th class="sorting_asc"> </th>
+                        </tr>
+                        </thead>
+                        <tbody data-bind="foreach : items">
+                        <tr class="gradeC">
+                            <td class="center"><input type="checkbox" class="styled"></td>
+                            <td class="center">Gifts for self & partner</td>
+                            <td class="center"><input type="text" class="input_table" placeholder="Type here..."></td>
+                            <td class="center">
+                                <img src="img/date.png">
+                            </td>
+                            <td class="middle">
+                                <a href="#" class="butt edit">Show me my lists</a>
+                            </td>
+                        </tr>
+                        <tr class="gradeC">
+                            <td class="center"><input type="checkbox" class="styled"></td>
+                            <td class="center">Gifts for children</td>
+                            <td class="center"><input type="text" class="input_table" placeholder="Type here..."></td>
+                            <td class="center">
+                                <img src="img/date.png">
+                            </td>
+                            <td class="middle">
+                                <a href="#" class="butt edit">Show me my lists</a>
+                            </td>
+                        </tr>
+                        <tr class="gradeC">
+                            <td class="center"><input type="checkbox" class="styled"></td>
+                            <td class="center">Gifts for other family members</td>
+                            <td class="center"><input type="text" class="input_table" placeholder="Type here..."></td>
+                            <td class="center">
+                                <img src="img/date.png">
+                            </td>
+                            <td class="middle">
+                                <a href="#" class="butt edit">Show me my lists</a>
+                            </td>
+                        </tr>
+                        <tr class="gradeC">
+                            <td class="center"><input type="checkbox" class="styled"></td>
+                            <td class="center">Gifts for friends</td>
+                            <td class="center"><input type="text" class="input_table" placeholder="Type here..."></td>
+                            <td class="center">
+                                <img src="img/date.png">
+                            </td>
+                            <td class="middle">
+                                <a href="#" class="butt edit">Show me my lists</a>
+                            </td>
+                        </tr>
+                        <tr class="gradeC">
+                            <td class="center"><input type="checkbox" class="styled"></td>
+                            <td class="center">Christmas parties</td>
+                            <td class="center"><input type="text" class="input_table" placeholder="Type here..."></td>
+                            <td class="center">
+                                <img src="img/date.png">
+                            </td>
+                            <td class="middle">
+                                <a href="#" class="butt edit">Show me my lists</a>
+                            </td>
+                        </tr>
+                        <tr class="gradeC">
+                            <td class="center"><input type="checkbox" class="styled"></td>
+                            <td class="center">Christmas food & drink shop</td>
+                            <td class="center"><input type="text" class="input_table" placeholder="Type here..."></td>
+                            <td class="center">
+                                <img src="img/date.png">
+                            </td>
+                            <td class="middle">
+                                <a href="#" class="butt edit">Show me my lists</a>
+                            </td>
+                        </tr>
+                        <tr class="gradeC">
+                            <td class="center"><input type="checkbox" class="styled"></td>
+                            <td class="center">Beauty</td>
+                            <td class="center"><input type="text" class="input_table" placeholder="Type here..."></td>
+                            <td class="center">
+                                <img src="img/date.png">
+                            </td>
+                            <td class="middle">
+                                <a href="#" class="butt edit">Show me my lists</a>
+                            </td>
+                        </tr>
+                        <tr class="gradeC">
+                            <td class="center"><input type="checkbox" class="styled"></td>
+                            <td class="center">Clothing (Xmas jumper)</td>
+                            <td class="center"><input type="text" class="input_table" placeholder="Type here..."></td>
+                            <td class="center">
+                                <img src="img/date.png">
+                            </td>
+                            <td class="middle">
+                                <a href="#" class="butt edit">Show me my lists</a>
+                            </td>
+                        </tr>
+                        <tr class="gradeC">
+                            <td class="center"> </td>
+                            <td class="center"> </td>
+                            <td class="center"> </td>
+                            <td class="center">  </td>
+                            <td class="middle"> </td>
+                        </tr>
+
+                        </tbody>
+                        <tfoot>
+
+                        </tfoot>
+                    </table>
+                </div>
+                <div class="banners">
+                    <div class="fleft income_p">
+                        <p>Xmas</p>
+                        <p>Running Total</p>
+                    </div>
+                    <div class="fleft butt_banner">
+                        <a href="#" class="nodecor"><div class="price">$2500.00</div></a>
+                    </div>
+                    <div class="fright">
+
+                        <div class="fleft butt_banner">
+                            <a href="#"> <img src="img/howto.png"></a>
+                        </div>
+                        <div class="fleft butt_banner">
+                            <a href="#"><img src="img/clickvideo.png"></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="footer">
+    </div>
+</div>
+</body>
+</html>

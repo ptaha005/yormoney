@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<!DOCTYPE tiles-definitions PUBLIC "-//Apache Software Foundation//DTD Tiles Configuration 3.0//EN" "http://tiles.apache.org/dtds/tiles-config_3_0.dtd">
+<tiles-definitions>
+    <definition name="templatePage" template="/WEB-INF/page/template/templateLayout.jsp" preparer="com.codexsoft.yormoney.controller.tilespreparer.PagePreparer">
+        <put-attribute name="plugin"    value="/WEB-INF/page/template/plugin.jsp"/>
+        <put-attribute name="title"     value=" "/>
+        <put-attribute name="header"    value="/WEB-INF/page/template/header.jsp"/>
+        <put-attribute name="main"      value="/WEB-INF/page/index.jsp"/>
+        <put-attribute name="footer"    value="/WEB-INF/page/template/footer.jsp"/>
+    </definition>
+    <definition name="index" template="/pages/index.jsp">
+    </definition>
+    <definition name="signin" extends="templatePage">
+        <put-attribute name="title"     value="Yor"/>
+        <put-attribute name="header"    value="/WEB-INF/page/sign/header.jsp"/>
+        <put-attribute name="main"      value="/WEB-INF/page/sign/sign.jsp"/>
+        <put-attribute name="footer"    value="/WEB-INF/page/sign/footer.jsp"/>
+    </definition>
+    <definition name="registrationStep1" extends="templatePage">
+        <put-attribute name="title"     value="Registration"/>
+        <put-attribute name="main"      value="/WEB-INF/page/registration/registration1.jsp"/>
+    </definition>
+    <definition name="welcomePage" extends="registrationStep1">
+        <put-attribute name="title"     value="Welcome"/>
+        <put-attribute name="main"      value="/WEB-INF/page/welcome.jsp"/>
+    </definition>
+    <definition name="relationships" extends="registrationStep1">
+        <put-attribute name="title"     value="Relationship"/>
+        <put-attribute name="main"      value="/WEB-INF/page/relationships.jsp"/>
+    </definition>
+</tiles-definitions>

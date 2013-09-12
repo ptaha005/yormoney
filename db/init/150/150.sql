@@ -1,0 +1,1 @@
+alter table expenditure drop column paid_from_a_c;

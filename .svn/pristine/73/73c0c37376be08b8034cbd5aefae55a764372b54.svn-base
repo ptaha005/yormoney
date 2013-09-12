@@ -1,0 +1,22 @@
+<div id="myModal" class="modal hide fade container_modal" >
+<div class="modal_content">
+    <h3>Guids</h3>
+    <div class="members_sum mright" style="width : 850px">
+        <p class="h3" >
+            <span class="value_sum" style="width : 500px" >Guid</span>
+        </p>
+        <p>
+Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla egestas in magna vitae molestie. Nullam euismod quis massa adipiscing adipiscing. Quisque et consequat lectus. Suspendisse vitae justo pharetra, imperdiet eros eget, varius enim. Nam a nisl justo. Phasellus ultricies lobortis enim, sed molestie nisl ultrices ac. Cras dignissim libero lacus, non placerat augue pharetra eget. In consectetur dui purus, et dapibus massa aliquet nec. Vivamus ut libero enim. Sed quis leo ornare, facilisis nunc auctor, venenatis odio. Etiam porttitor interdum enim et pretium. Nunc convallis dui ac justo dignissim, ut venenatis elit porttitor. Nullam malesuada adipiscing risus. Morbi feugiat quam tellus, eget mattis nisi posuere vel.
+
+Proin lobortis quis orci eget sagittis. Donec viverra, arcu et luctus malesuada, mauris nulla faucibus turpis, eget placerat magna tellus et erat. Mauris commodo nisi quis libero tempor, vel volutpat quam euismod. Fusce nec pharetra augue. Praesent suscipit eros risus, eu consectetur est vestibulum sit amet. Cras nisl urna, semper in ultricies in, facilisis porta nisi. Suspendisse rutrum justo eros, vitae ultrices nunc fermentum in. Curabitur lacus sem, pretium eget nunc at, laoreet imperdiet arcu. Sed quis nulla et tortor porttitor tempor et a justo. Nullam ut ultrices odio, vel gravida massa. Suspendisse potenti. Donec mollis, arcu ut feugiat ullamcorper, lorem mauris semper urna, id sagittis tellus diam ac metus. Quisque at orci sit amet ante congue laoreet ac at diam. Integer at libero non ante consequat elementum. Cras non elementum dolor.
+
+Nullam ac molestie justo, vitae pharetra diam. Quisque iaculis ornare suscipit. Aenean lectus lacus, congue vel augue id, rutrum iaculis massa. Maecenas id eros quis risus suscipit sagittis. Nam non erat justo. Fusce neque nisi, dictum et porttitor eget, pulvinar non justo. Vivamus ac dolor ac eros interdum tristique. Fusce sed neque porttitor, rutrum augue ut, convallis eros. Nunc eleifend bibendum eros, id ultricies nisi iaculis id. Praesent mollis ipsum sed consequat dapibus. Nullam ullamcorper convallis volutpat. Donec at lacus leo. Fusce sed ipsum ut velit ultrices egestas at in nisi. Suspendisse vitae nibh quis justo imperdiet cursus.
+
+In nec faucibus lacus. Nam suscipit luctus enim et scelerisque. Praesent at sapien in nulla ornare suscipit. Etiam eget ante metus. Nulla ultricies risus ac mi ultrices, vitae accumsan mi tempus. Integer sed tincidunt risus, eu ornare elit. Vivamus odio enim, rutrum id elementum eget, feugiat ut quam. Cras at sem pellentesque, laoreet nisl eget, faucibus arcu. Duis quis lacus sodales, dapibus arcu sit amet, tempus risus. Morbi sagittis diam quis elit tincidunt porttitor.
+            
+        </p>
+    </div>
+    <div class="clear"></div>
+    <a href="#" class="butt edit" data-dismiss="modal">Close</a>
+</div>
+</div>

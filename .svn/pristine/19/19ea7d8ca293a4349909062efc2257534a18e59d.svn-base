@@ -1,0 +1,472 @@
+package com.codexsoft.yormoney.controller;
+
+import com.codexsoft.yormoney.dao.NoteDao;
+import com.codexsoft.yormoney.domain.*;
+import com.codexsoft.yormoney.services.*;
+import com.codexsoft.yormoney.util.FileFilterImpl;
+import com.codexsoft.yormoney.util.datatables.ParamBuilder;
+import org.apache.commons.io.IOUtils;
+import org.apache.log4j.Logger;
+import org.hibernate.Hibernate;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.http.MediaType;
+import org.springframework.security.access.prepost.PreAuthorize;
+import org.springframework.security.authentication.encoding.Md5PasswordEncoder;
+import org.springframework.security.authentication.encoding.PasswordEncoder;
+import org.springframework.security.core.context.SecurityContextHolder;
+import org.springframework.security.web.authentication.logout.SecurityContextLogoutHandler;
+import org.springframework.stereotype.Controller;
+import org.springframework.transaction.annotation.Transactional;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.*;
+
+import java.io.*;
+import java.security.Principal;
+import java.util.*;
+
+import com.codexsoft.yormoney.security.SigninUtil;
+import org.springframework.web.multipart.MultipartFile;
+
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+import java.util.zip.ZipEntry;
+import java.util.zip.ZipFile;
+import org.apache.commons.io.FilenameUtils;
+
+@RequestMapping(value = {"/user", "/api/user/"})
+@Controller
+public class UserController {
+
+    private final Logger log = Logger.getLogger(this.getClass());
+
+    @Autowired
+    private UserService userService;
+
+    @Value("#{wiringProperties['file.onDiskPath']}")
+    private String onDiskPath;
+
+    @Value("#{wiringProperties['application.host']}")
+    private String host;
+
+    @Autowired
+    private RoleService roleService;
+
+    @Autowired
+    private MailService mailService;
+
+    @Autowired
+    private NoteDao noteDao;
+
+    @Autowired
+    private IncomeService incomeService;
+
+    @Autowired
+    private ExpenditureService expenditureService;
+
+    // @RequestMapping(value = "/getUserInfo" , method = RequestMethod.POST, consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
+    // public @ResponseBody User getUserInfo(@RequestBody User user){
+    //    return userService.getUserByActivationCode(user.getActivationCode());
+    // }
+
+    public ParamBuilder getPrincipalParam(Principal principal){
+        User user = userService.findByUsername(principal.getName());
+        ParamBuilder pb = ParamBuilder.getBuilder();
+        pb.equal("user", user);
+        return pb;
+    }
+
+
+    @RequestMapping(value = "/signin", method = RequestMethod.POST , produces = MediaType.APPLICATION_JSON_VALUE)
+    public @ResponseBody User signin(@RequestBody Map<String,String> mapJSON){
+        String username = mapJSON.get("username");
+        String password = mapJSON.get("password");
+        PasswordEncoder encoder = new Md5PasswordEncoder();
+        String passwordEncode = encoder.encodePassword(password, null);
+        ParamBuilder pb = ParamBuilder.getBuilder();
+        pb.equal("username", username);
+        pb.equal("password", passwordEncode);
+        User userDB = userService.getUserByParams(pb.getParams());
+        Hibernate.initialize(userDB);
+        if (userDB != null){
+            userDB.getJsonValues().put("success", true);
+            SigninUtil.signin(userDB.getUsername(), userDB.getRole());
+        }   else {
+            userDB = new User();
+            userDB.getJsonValues().put("success", false);
+            userDB.getJsonValues().put("message", "Please check your username and password.");
+        }
+        return userDB;
+    }
+
+    @RequestMapping(value = "/logout", method = {RequestMethod.POST, RequestMethod.GET})
+    public @ResponseBody String logout(HttpServletRequest request, HttpServletResponse response, Principal principal){
+        if (principal != null){
+            SecurityContextLogoutHandler securityContextLogoutHandler = new SecurityContextLogoutHandler();
+            SecurityContextHolder.getContext().getAuthentication();
+            securityContextLogoutHandler.logout(request, response, SecurityContextHolder.getContext().getAuthentication());
+            return "{success : true}";
+        }
+        return "{success : false, message : error}";
+    }
+
+    @PreAuthorize(value = "isAuthenticated()")
+    @RequestMapping(value = "/state/{value}" , method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
+    public @ResponseBody String  state(@PathVariable String value, Principal principal){
+        User user = userService.findByUsername(principal.getName());
+        try{
+            user.setState(State.valueOf(value).ordinal());
+        } catch (IllegalArgumentException e) {
+        return "{\"success\" : false, \"message\" : IllegalArgument}";
+        }
+        userService.saveOrUpdateUser(user);
+        return "{ \"success\" : true}";
+    }
+
+
+    @PreAuthorize(value = "isAuthenticated()")
+    @RequestMapping(value = "/getUserInfo" , method = RequestMethod.GET,  produces = MediaType.APPLICATION_JSON_VALUE)
+    public @ResponseBody User getUserInfo(Principal principal){
+        User user = userService.findByUsername(principal.getName());
+        Hibernate.initialize(user);
+        return user;
+    }
+
+
+    @PreAuthorize(value = "isAuthenticated()")
+    @RequestMapping(value = "/members/list" , method = RequestMethod.GET,  produces = MediaType.APPLICATION_JSON_VALUE)
+    @Transactional
+    public @ResponseBody List<Member> getMembers(Principal principal){
+        User user = userService.findByUsername(principal.getName());
+        return user.getMembers();
+    }
+
+    @PreAuthorize(value = "isAuthenticated()")
+    @RequestMapping(value = "/getRelationships", method = RequestMethod.GET , produces = MediaType.APPLICATION_JSON_VALUE)
+    public @ResponseBody List<Relationship> getRelationship(){
+        return userService.getRelationships();
+    }
+
+    @RequestMapping(value = "/forgot/password", method = RequestMethod.POST, consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
+    public @ResponseBody String forgotPassword(@RequestBody Map<String, String> mapJSON){
+        String email = mapJSON.get("email");
+        User user = userService.findByEmail(email);
+        if (user == null){
+            return "{ \"success\" : false, \"messag\" : \"email address yor entered is not defined to any user\" }";
+        }
+        String newPassword = UUID.randomUUID().toString().substring(0, 8);
+        Md5PasswordEncoder md5 = new Md5PasswordEncoder();
+        user.setPassword(md5.encodePassword(newPassword, null));
+        userService.saveOrUpdateUser(user);
+        mailService.send(email,"Your password: " + newPassword ,  "New password");
+        return "{ \"success\" : true, \"message\" : \"An email has been sent containing your new password.\"}";
+    }
+
+    @RequestMapping(value = "/forgot/username", method = RequestMethod.POST, consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
+    public @ResponseBody String forgotUser(@RequestBody Map<String, String> mapJSON){
+        String email = mapJSON.get("email");
+        User user = userService.findByEmail(email);
+        if (user == null){
+            return "{ \"success\" : false, \"message\" : \"email address yor entered is not defined to any user\" }";
+        }
+        mailService.send(email, "Username : " + user.getUsername(), "Username");
+        return "{ \"success\" : true, \"message\" : \"An email has been sent containing your username.\"}";
+    }
+
+     @RequestMapping(value = "/session", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
+    public @ResponseBody User session(Principal principal){
+        User user = new User();
+
+        if (principal == null){
+            user = new User();
+            user.getJsonValues().put("login", false);
+            return user;
+        }
+
+        user = userService.findByUsername(principal.getName());
+//         Hibernate.initialize(user);
+        if (user == null){
+            user = new User();
+            user.getJsonValues().put("login", false);
+            return user;
+        }
+        
+        user.getJsonValues().put("login", true);
+        return user;
+    }
+
+    @PreAuthorize(value = "isAuthenticated()")
+    @RequestMapping(value = "/uploadFile", method = RequestMethod.POST)
+    @ResponseBody
+    public void uploadFile(@RequestParam String path, @RequestParam String qqfile, Principal principal, HttpServletRequest request, HttpServletResponse response){
+        User user = userService.findByUsername(principal.getName());
+        PrintWriter writer = null;
+        ParamBuilder pb = getPrincipalParam(principal);
+        pb.equal("name", path);
+        Folder folder = userService.getFolderByParams(pb.getParams());
+        if (folder == null) {
+            folder = new Folder();
+            folder.setName(path);
+            folder.setUser(user);
+            userService.saveOrUpdateFolder(folder);
+        }
+        Document document = new Document();
+        document.setUser(user);
+        document.setName(qqfile);
+        document.setCategory(path);
+        InputStream is = null;
+        FileOutputStream fos = null;
+        String new_path =  onDiskPath + user.getId() + "/";
+
+        try {
+            writer = response.getWriter();
+        } catch (IOException ex) {
+            log.error("IOException in uploadFIle");
+        }
+
+        String ext = qqfile.substring(qqfile.lastIndexOf('.') + 1);
+        String randomName = UUID.randomUUID().toString()  + "." + ext;
+        document.setSystemName(randomName);
+        DocumentType documentType = null;
+        try {
+            documentType = DocumentType.valueOf(ext);
+        } catch(IllegalArgumentException e){
+            documentType = DocumentType.other;
+        }
+        document.setType(documentType);
+        try {
+            if (is == null) {
+                is = request.getInputStream();
+            }
+            File fd = new File(new_path);
+            document.setPath(new_path);
+            fd.mkdirs();
+
+            File file = new File(new_path + randomName);
+            fos = new FileOutputStream(file);
+            IOUtils.copy(is, fos);
+            document.setFolder(folder);
+            userService.saveOrUpdateDocument(document);
+            response.setStatus(HttpServletResponse.SC_OK);
+        } catch(FileNotFoundException e){
+
+        } catch(IOException e){
+
+        } finally{
+            try {
+                is.close();
+                fos.close();
+            } catch(IOException e){
+            }
+        }
+        writer.flush();
+        writer.close();
+
+    }
+
+
+    private List<Document> getFilesByFolder(User user) {
+        ParamBuilder pb = ParamBuilder.getBuilder();
+        pb.equal("user", user);
+        List<Folder> folders = userService.getListFolderByParams(pb.getParams());
+        if (folders == null)
+            folders = new ArrayList<Folder>();
+        Iterator<Folder> iter = folders.iterator();
+        List<Document> documents = new ArrayList<Document>();
+        while(iter.hasNext())
+            documents.addAll(iter.next().getDocuments());
+        return documents;
+    }
+
+
+    @PreAuthorize(value = "isAuthenticated()")
+    @RequestMapping(value = "/file/0", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
+    @ResponseBody
+    public List<Document> fileRoot(Principal principal){
+        User user  = userService.findByUsername(principal.getName());
+        return getFilesByFolder(user);
+    }
+
+    @PreAuthorize(value = "isAuthenticated()")
+    @RequestMapping(value = "/file/{folderId}", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
+    @ResponseBody
+    public List<Document> file(@PathVariable Long folderId){
+        Folder folder = userService.getFolderById(folderId);
+        return folder.getDocuments();
+    }
+
+    @PreAuthorize(value = "isAuthenticated()")
+    @RequestMapping(value = "/file", method = RequestMethod.DELETE)
+    @ResponseBody
+    public String deleteFile(@RequestParam Long fileId, Principal principal){
+        User user = userService.findByUsername(principal.getName());
+        Document document = userService.getDocumentById(fileId);
+        userService.deleteDocument(document);
+        File file = new File(document.getPath() + document.getSystemName());
+        file.delete();
+        return "{ \"success\" : true}";
+    }
+
+    @PreAuthorize(value = "isAuthenticated()")
+    @RequestMapping(value = "/folder", method = RequestMethod.DELETE)
+    @ResponseBody
+    public String deleteFolder(@RequestParam Long folderId, Principal principal){
+        User user = userService.findByUsername(principal.getName());
+        Folder folder = userService.getFolderById(folderId);
+        if (folder == null)
+            return "{ \"success\" : false}";
+        userService.deleteFolder(folder);
+        return "{ \"success\" : true}";
+    }
+
+    @PreAuthorize(value = "isAuthenticated()")
+    @RequestMapping(value = "/folder/{folderName}", method = RequestMethod.POST,  produces = MediaType.APPLICATION_JSON_VALUE)
+    @ResponseBody
+    public  Folder createFolder(@PathVariable String folderName, Principal principal){
+        User user = userService.findByUsername(principal.getName());
+
+        ParamBuilder pb = getPrincipalParam(principal);
+        pb.equal("name", folderName);
+
+        Folder folder = userService.getFolderByParams(pb.getParams());
+        if (folder != null) {
+            folder = new Folder();
+            folder.getJsonValues().put("success" , false);
+            return folder;
+        }
+
+        folder = new Folder();
+        folder.setName(folderName);
+        folder.setUser(user);
+        userService.saveOrUpdateFolder(folder);
+        folder.getJsonValues().put("success", true);
+
+        return folder;
+    }
+
+//    @PreAuthorize(value = "isAuthenticated()")
+//    @RequestMapping(value = "/folder", method = RequestMethod.POST, produces = MediaType.APPLICATION_JSON_VALUE)
+//    @ResponseBody
+//    public String updateFolder(@RequestParam Long folderId, @RequestParam String newName ,  Principal principal){
+//        User user = userService.findByUsername(principal.getName());
+//        Folder folder = userService.getFolderById(folderId);
+//        ParamBuilder pb = getPrincipalParam(principal);
+//        pb.equal("name", newName);
+//        pb.equal("user", user);
+//        folder = userService.getFolderByParams(pb.getParams());
+//        if (folder == null)
+//            return "{ \"success\" : false, \"message\" : \"Folder exist with new name = \"}";
+//
+//        folder.setName(newName);
+//        userService.saveOrUpdateFolder(folder);
+//        return "{\"success\" : true}";
+//    }
+
+    @PreAuthorize(value = "isAuthenticated()")
+    @RequestMapping(value = "/folders", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
+    @ResponseBody
+    public List<Document> folder(Principal principal){
+        ParamBuilder pb = getPrincipalParam(principal);
+        List<Folder> folders = userService.getListFolderByParams(pb.getParams());
+        if (folders == null)
+            folders = new ArrayList<Folder>();
+        List<Document> documents = new ArrayList<Document>();
+        Iterator<Folder> iter = folders.iterator();
+
+        while(iter.hasNext())
+            documents.addAll(iter.next().getDocuments());
+
+        return documents;
+    }
+
+
+    @PreAuthorize(value = "isAuthenticated()")
+    @RequestMapping(value = "/notes", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
+    @ResponseBody
+    public List<Note> note(Principal principal){
+        ParamBuilder pb = getPrincipalParam(principal);
+        List<Note> notes = noteDao.getListByParams(pb.getParams());
+
+        if (notes == null)
+            notes = new ArrayList<Note>();
+        return notes;
+    }
+
+
+    @PreAuthorize(value = "isAuthenticated()")
+    @RequestMapping(value = "/total", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
+    @ResponseBody
+    public String balance(Principal principal){
+
+        User user = userService.findByUsername(principal.getName());
+        Balance balance = userService.getBalanceByParams(getPrincipalParam(principal).getParams());
+
+        if (balance == null){
+            balance = new Balance();
+        }
+
+        balance.setTotal(0L);
+        balance.setTotalExpennditure(0L);
+        balance.setTotalIncome(0L);
+
+        List<Income> incomes = incomeService.getIncomesByParams(getPrincipalParam(principal).getParams());
+
+        Iterator<Income> iterIncome = incomes.iterator();
+
+        while (iterIncome.hasNext()){
+            balance.setTotalIncome(balance.getTotalIncome() + iterIncome.next().getAmount());
+        }
+
+        List<Expenditure> expenditures = expenditureService.getExpenditureByParams(getPrincipalParam(principal).getParams());
+
+        Iterator<Expenditure> iterExpenditure = expenditures.iterator();
+
+        while(iterExpenditure.hasNext()){
+            balance.setTotalExpennditure(balance.getTotalExpennditure() + iterExpenditure.next().getCost());
+        }
+
+
+        balance.setTotal(balance.getTotalIncome() - balance.getTotalExpennditure());
+
+        balance.setUser(user);
+
+        userService.saveOrUpdateBalance(balance);
+
+        return "{\"In\": \"$" +balance.getTotalIncome() + "\", \"Out\": \"$" + balance.getTotalExpennditure()
+                + "\", \"Result\": \"$" + balance.getTotal() +"\"}";
+
+    }
+
+
+
+    @PreAuthorize(value = "isAuthenticated()")
+    @RequestMapping(value = "/state", method = RequestMethod.GET)
+    public @ResponseBody String state(Principal principal){
+        if (principal == null)
+            return "login";
+        User user = userService.findByUsername(principal.getName());
+        if (user.getState()==null) return "login";
+        switch (user.getState()){
+            case 1 :
+                return "register1";
+            case 2 :
+                return "welcome";
+            case 3 :
+                return "register2";
+            case 4 :
+                return "bankacccounts";
+            case 5 :
+                return "income";
+            case 6 :
+                return "expenditure";
+            case 7 :
+                return "events";
+            case 8 :
+                return "summary";
+            case 9 :
+                return "complite";
+            default:
+                return "register1";
+        }
+    }
+}

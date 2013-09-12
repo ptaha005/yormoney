@@ -1,0 +1,1 @@
+"c:\Program Files\MySQL\MySQL Server 5.6\bin\mysql.exe" -uroot -p123456 yormoney <d:\Work\codex\yormoney\db\init\%1\%1.sql

@@ -1,0 +1,111 @@
+<div class="bckg_page ">
+            <div id="header" >
+                <div id="logo"><a href="#"></a></div>
+                <div id="exit"><a  class="exit"  href="#"  data-bind="click : exit"></a></div>
+            </div>
+            <div id="content" class="start_up">
+                <div class="title_form"><span>Y&ouml;r - Personal Information</span></div>
+                <div id="left_content_register">
+                    <div class="title_left_content">
+                        <span class="image"></span>
+                        <span class="title_left_main start_title_main">Start Up Wizard</span>
+                        <span class="title_left_bottom">Personal Information</span>
+                    </div>
+                    <div id="form_registration">
+                        <form action="" method="" id="reg_form">
+                            <div class="left_form" >
+                                <!-- ko with : currentMember -->
+                                <p><strong>Enter the details for All members of your immediate family.</strong></p>
+                                <p data-bind="text : $parent.memberExistError, visible : $parent.memberExistError().length > 0" class="validationMessage"></p>
+                                <div class="inputs">
+                                    <label for="fname" class="">First name</label>
+                                    <input size="30" maxlength="30"  data-bind="value : firstName" id="fname" type="text" value="" class="input_field"/>
+                                </div>
+                                <div class="inputs">
+                                    <label size="30" maxlength="30" for="lname" class="">Last name</label>
+                                    <input data-bind="value : lastName" id="lname" type="text" value="" class="input_field"/>
+                                </div>
+                                <div class="inputs">
+                                    <label  for="date" class="">Date of birth</label>
+                                   <!--  <input size="2" maxlength="2" data-bind="value : day" type="text" placeholder="DD" id="date" class="input_norm date">
+                                    <input size="2" maxlength="2" data-bind="value : month" type="text" placeholder="MM" class="input_norm date">
+                                    <input size="4" maxlength="4" data-bind="value : year" type="text" placeholder="YYYY" class="input_norm date_year"> -->
+                                    <input maxlength="20" style="width : 200px" data-bind="datepicker : dateOfBirthAsDate"  type="text" value="" class="input_field"/>
+                                </div>
+                                <div class="inputs">
+                                    <label for="email" class="">Email</label>
+                                    <input size="80" maxlength="80" data-bind="value : email" id="email" type="text" value="" class="input_field"/>
+                                </div>
+                                <div class="inputs">
+                                    <label for="occup" class="">Occupation</label>
+                                    <input size="150" maxlength="150" data-bind="value : occupation" id="occup" type="text" value="" class="input_field"/>
+                                </div>
+                                <div class="inputs info">
+                                    <a href="#"><img src="/pages/img/info.png"/></a>
+                                    <label style="width : 120px">
+                                    <input data-bind="checked : accountHolder" type="checkbox">
+                                    Account holder</label>
+                                </div>
+
+                                <div class="inputs width160" >
+                                    <label for="Relation" class="">Relationship</label>
+                                    <select data-bind=" 
+                                    options : $parent.relationshipList, optionsValue : 'id', optionsText : 'name', optionsCaption : 'Please select...', value : relationship.id" id="Relation" class="select">
+                                    </select>
+                                </div>
+                                <!-- /ko -->
+                                <div class="inputs">
+                                    <input data-bind="click : save" type="button" value="Click to add another member" class="butt_add"/>
+                                </div>
+                            </div>
+                            <div class="right_form">
+                                <p><strong>Only when all members have been added, click "I'm done! on the right"</strong></p>
+                                <div class="textarea" data-bind="foreach : members">
+                                    <div class="members">
+                                        <p class="member"><strong>Members added</strong></p>
+                                        <p><span class="left_names">Name</span><span data-bind="text : firstName() + ' ' + lastName()"></span></p>
+                                        <p><span class="left_names">Date of Birth</span><span data-bind="text : dateOfBirth"></span></p>
+                                        <p><span class="left_names">Relationship</span><span data-bind="text : relationship.name"></span></p>
+                                        <p><span class="left_names">Acoount holder</span><span data-bind="text : accountHolderText"></span></p>
+                                        <div class="editdel">
+                                            <a data-bind="click : $parent.editMember" href="#" class="butt edit">Edit</a>
+                                            <a data-bind="click : $parent.deleteMember" href="#" class="butt delete">Delete</a>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="inputs">
+                                    <input data-bind="click : done" type="button" value="I'm done!" class="butt_done"/>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+                <div id="right_content_register">
+                    <div class="title_video_text_right_content">
+                        <span class="title_right_main start_wiz">Registered account holder</span>
+                        <div class="block_title_text_right">
+                            <span class="title_block per_inf_t">Name</span>
+                            <span class="text_block per_inf_txt" data-bind="text : name"></span>
+                        </div>
+                        <div class="block_title_text_right">
+                            <span class="title_block per_inf_t">Address</span>
+                            <span class="text_block per_inf_txt" data-bind="text : address"></span>
+                        </div>
+                        <!-- <div class="block_title_text_right">
+                            <span class="title_block per_inf_t">Telephone</span>
+                            <span class="text_block per_inf_txt" data-bind="text : telephone"></span>
+                        </div> -->
+                        <div class="block_title_text_right">
+                            <span class="title_block per_inf_t">Email</span>
+                            <span class="text_block per_inf_txt" data-bind="text : email"></span>
+                        </div>
+                        <div class="video_youtube">
+                            <span class="title_right_main">Help Video</span>
+                            <iframe  class="video_welcome" width="225" height="155" src="http://www.youtube.com/embed/XGSy3_Czz8k"></iframe>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div id="footer">
+            </div>
+</div>

@@ -1,0 +1,1 @@
+ALTER table insurance MODIFY payment_date varchar(100)

@@ -1,0 +1,76 @@
+<script type="text/template" id="income-row">
+        <td class="center"><input data-bind="checked : active" type="checkbox" class="styled"></td>
+        <td class="selectRigth">
+            <select data-bind="optionsCaption: 'Choose...', options:$parent.allExpenditureTypes, optionsText : 'name', optionsValue: 'id', value : expenditureType.id, value : expenditureType.id  "></select>
+        </td>
+        <td class="center" >
+            <input data-bind="value : companyName" type="text" class="input_table" placeholder="Type here...">
+        </td>
+        <td class="selectRigth">
+              <select data-bind="optionsCaption: 'Choose...',  options:$parent.members, optionsText : 'firstName', optionsValue: 'id', value : member ? member.id : ''"></select>
+        </td>
+        <td class="selectRigth" >
+            <select data-bind="optionsCaption: 'Choose...',  options:$parent.frequencyList, value : frequency"></select>
+        </td>
+
+        <td class="center " >
+            <input data-bind="value : cost"  size="9" maxlength="9" type="text" class="input_table" placeholder="Type here...">
+        </td>
+        <td class="selectRigth width100p">
+                <select data-bind="optionsCaption: 'Choose...',  options:$parent.bankAccounts, optionsText : 'name', optionsValue: 'id', value : bankAccount ? bankAccount.id : ''"></select>
+        </td>
+      <td class="center" >
+            question
+        </td>
+        <td class="center" >
+            <a href='#' data-bind="click : $parent.delete">delete</a>
+        </td>
+</script>
+
+<div class="income_bckgr">
+    <div class="income_top">
+        <span class="image"></span>
+        <div class="inline title_text">
+            <p class="title">Start Up Wizard</p>
+            <p class="under_title">Regular Expenditure</p>
+        </div>
+    </div>
+    <div class="inputs button fright" id="expenditue_top_form">
+        <p>
+
+            <select style="width: 150px" id="test"  data-bind="options : categories, value : selectedCategory, optionsText : 'name'">
+            </select>
+            <span class="selectLable">Category<span>
+          
+        </p>
+        <p>
+          <select style="width: 200px"  data-bind="optionsCaption: 'Choose...', options : expenditureTypes, optionsValue : 'id', value : expenditureTypeId, optionsText : 'name'">
+            </select>
+          <span class="selectLable">Expenditure Type</span>         
+        </p>
+        <div class="clear"></div>
+        <div class="editdel">
+            <a data-bind="click : showCategories" class="butt edit show_lists" data-toggle="modal"  >Categories</a>
+            <a href="#" class="butt expenditure" data-bind="click : add">Add to expenditure list</a>
+        </div>
+    </div>
+</div>
+<div style="width: 900px" class="fixHeight">
+    <table cellpadding="0" cellspacing="0" border="0" class="display" id="example" width="100%"
+    data-bind="dataTable: { 
+      instance :  oTable,
+      options : {
+         sScrollY: '271px',
+         bPaginate: true,
+         bProcessing: true,
+         bInfo : false,
+         bServerSide: true,
+         bLengthChange  : false,
+         bScrollCollapse: false,
+         sAjaxSource : '/expenditure/list' ,
+         aoColumns : columns,
+         buildRow : buildRow,
+         rowTemplate : 'income-row'
+        }
+    }"></table>
+</div>

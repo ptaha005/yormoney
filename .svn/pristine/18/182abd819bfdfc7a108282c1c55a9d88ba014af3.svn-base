@@ -1,0 +1,258 @@
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta charset="utf-8">
+    <title>Y&ouml;r - Diary</title>
+    <link rel="stylesheet" type="text/css" href="css/style.css">
+
+</head>
+<body>
+<div class="bckg_page">
+    <div id="header">
+        <div id="logo"><a href="#"></a></div>
+        <div id="exit"><a class="exit" href="#"></a></div>
+    </div>
+    <div id="content" class="help">
+        <div class="left_video">
+            <img src="img/diagram_color.png" alt="diagramm" class="diagr_video">
+            <a href="#"><img src="img/apps.png" alt="apps" class="app"></a>
+            <a href="#"><img src="img/yoshop.png" alt="yor shop"></a>
+            <a href="#"><img src="img/tescobl.png" alt="tesco" class="tesco"></a>
+        </div>
+        <div class="content video_page suppliers">
+            <div class="title_form">
+                <span class="back"><a href="#"><img src="img/back.png" alt="back"></a></span>
+                <span class="video_lib">Y&ouml;r - Address Book</span>
+                <span class="dash"><a href="#"><img src="img/edit_sup.png" alt="back"></a></span>
+            </div>
+            <div class="bckgr_full">
+                <div class="help_content">
+                    <div class="calendar_suppl">
+                        <div class="fleft">
+                            <a href="#"><img class="middle" src="img/arr_left.png"></a>
+                            <span>September</span>
+                            <a href="#"><img class="middle" src="img/arr_right.png"></a>
+                            <a href="#" class="butt edit">Day</a>
+                            <a href="#" class="butt edit">Week</a>
+                            <a href="#" class="butt green_sm">Month</a>
+                            <a href="#" class="butt edit calc"><img class="middle" src="img/icalc.png"> iCal</a>
+                        </div>
+                        <div class="fright">
+                            <ul class="menu_supplier">
+                                <li><a href="#"><img src="img/suppl_hat.png"></a></li>
+                                <li><a href="#"><img src="img/suppl_print.png"></a></li>
+                                <li><a href="#"><img src="img/suppl_conv.png"></a></li>
+                                <li><a href="#"><img src="img/suppl_cancel.png"></a></li>
+                                <li><a href="#"><img src="img/suppl_message.png"></a></li>
+                                <li><a href="#"><img src="img/suppl_kino.png"></a></li>
+                            </ul>
+                        </div>
+                        <div class="clear"></div>
+                        <div class="calendar overflo">
+                            <div class="day">
+                                <div class="day_num">
+                                    <p><small>1 SEP</small></p>
+                                </div>
+                                <div class="icons_diar">
+                                     <table>
+                                         <tr>
+                                             <td><a href="#"><img src="img/ico_graf.png"><small>3</small></a></td>
+                                             <td class="ico_right"><a href="#"><img src="img/ico_prize.png"><small>1</small></a></td>
+                                         </tr>
+                                         <tr style="height: 33px"></tr>
+                                         <tr>
+                                             <td><a href="#"><img src="img/ico_dialog.png"><small>45</small></a></td>
+                                             <td class="ico_right"><a href="#"><img src="img/ico_funt.png"><small>4</small></a></td>
+                                         </tr>
+                                     </table>
+                                </div>
+                            </div>
+                            <div class="day">
+                                <div class="day_num"><p><small>2</small></p></div>
+                                <div class="icons_diar">
+                                    <table>
+                                        <tr>
+                                        </tr>
+                                        <tr style="height: 50px"></tr>
+                                        <tr>
+                                            <td><a href="#"><img src="img/ico_dialog.png"><small>45</small></a></td>
+                                        </tr>
+                                    </table>
+                                </div>
+                            </div>
+                            <div class="day">
+                                <div class="day_num"><p><small>3</small></p></div>
+                                <div class="icons_diar">
+                                    <table>
+                                        <tr>
+                                        </tr>
+                                        <tr style="height: 50px"></tr>
+                                        <tr>
+                                            <td class="ico_right"><a href="#"><img src="img/ico_funt.png"><small>4</small></a></td>
+                                        </tr>
+                                    </table>
+                                </div>
+                            </div>
+                            <div class="day">
+                                <div class="day_num"><p><small>4</small></p></div>
+                                <div class="icons_diar">
+                                    <table>
+                                        <tr>
+                                            <td class="ico_right"><a href="#"><img src="img/ico_prize.png"><small>1</small></a></td>
+                                        </tr>
+                                        <tr style="height: 50px"></tr>
+                                        <tr>
+                                       </tr>
+                                    </table>
+                                </div>
+                            </div>
+                            <div class="day">
+                                <div class="day_num"><p><small>5</small></p></div>
+                                <div class="icons_diar">
+                                    <table>
+                                        <tr>
+                                            <td><a href="#"><img src="img/ico_graf.png"><small>3</small></a></td>
+                                        </tr>
+                                        <tr style="height: 50px"></tr>
+                                        <tr>
+                                        </tr>
+                                    </table>
+                                </div>
+                            </div>
+                            <div class="day">
+                                <div class="day_num"><p><small>6</small></p></div>
+                                <div class="icons_diar"></div>
+                            </div>
+                            <div class="day">
+                                <div class="day_num"><p><small>7</small></p></div>
+                                <div class="icons_diar"></div>
+                            </div>
+                            <div class="day">
+                                <div class="day_num"><p><small>8</small></p></div>
+                                <div class="icons_diar"></div>
+                            </div>
+                            <div class="day">
+                                <div class="day_num"><p><small>9</small></p></div>
+                                <div class="icons_diar"></div>
+                            </div>
+                            <div class="day">
+                                <div class="day_num"><p><small>10</small></p></div>
+                                <div class="icons_diar"></div>
+                            </div>
+                            <div class="day">
+                                <div class="day_num"><p><small>11</small></p></div>
+                                <div class="icons_diar"></div>
+                            </div>
+                            <div class="day">
+                                <div class="day_num"><p><small>12</small></p></div>
+                                <div class="icons_diar"></div>
+                            </div>
+                            <div class="day">
+                                <div class="day_num"><p><small>13</small></p></div>
+                                <div class="icons_diar"></div>
+                            </div>
+                            <div class="day">
+                                <div class="day_num"><p><small>14</small></p></div>
+                                <div class="icons_diar"></div>
+                            </div>
+                            <div class="day">
+                                <div class="day_num"><p><small>15</small></p></div>
+                                <div class="icons_diar"></div>
+                            </div>
+                            <div class="day">
+                                <div class="day_num"><p><small>16</small></p></div>
+                                <div class="icons_diar"></div>
+                            </div>
+                            <div class="day">
+                                <div class="day_num"><p><small>17</small></p></div>
+                                <div class="icons_diar"></div>
+                            </div>
+                            <div class="day">
+                                <div class="day_num"><p><small>18</small></p></div>
+                                <div class="icons_diar"></div>
+                            </div>
+                            <div class="day">
+                                <div class="day_num"><p><small>19</small></p></div>
+                                <div class="icons_diar"></div>
+                            </div>
+                            <div class="day">
+                                <div class="day_num"><p><small>20</small></p></div>
+                                <div class="icons_diar"></div>
+                            </div>
+                            <div class="day">
+                                <div class="day_num"><p><small>21</small></p></div>
+                                <div class="icons_diar"></div>
+                            </div>
+                            <div class="day">
+                                <div class="day_num"><p><small>22</small></p></div>
+                                <div class="icons_diar"></div>
+                            </div>
+                            <div class="day">
+                                <div class="day_num"><p><small>23</small></p></div>
+                                <div class="icons_diar"></div>
+                            </div>
+                            <div class="day">
+                                <div class="day_num"><p><small>24</small></p></div>
+                                <div class="icons_diar"></div>
+                            </div>
+                            <div class="day">
+                                <div class="day_num"><p><small>25</small></p></div>
+                                <div class="icons_diar"></div>
+                            </div>
+                            <div class="day">
+                                <div class="day_num"><p><small>26</small></p></div>
+                                <div class="icons_diar"></div>
+                            </div>
+                            <div class="day">
+                                <div class="day_num"><p><small>27</small></p></div>
+                                <div class="icons_diar"></div>
+                            </div>
+                            <div class="day">
+                                <div class="day_num"><p><small>28</small></p></div>
+                                <div class="icons_diar"></div>
+                            </div>
+                            <div class="day">
+                                <div class="day_num"><p><small>29</small></p></div>
+                                <div class="icons_diar"></div>
+                            </div>
+
+                            <div class="day">
+                                <div class="day_num"><p><small>30</small></p></div>
+                                <div class="icons_diar"></div>
+                            </div>
+                            <div class="day">
+                                <div class="day_num_gray"><p><small>Oct 1</small></p></div>
+                                <div class="icons_diar"></div>
+                            </div>
+                            <div class="day">
+                                <div class="day_num_gray"><p><small>2</small></p></div>
+                                <div class="icons_diar"></div>
+                            </div>
+                            <div class="day">
+                                <div class="day_num_gray"><p><small>3</small></p></div>
+                                <div class="icons_diar"></div>
+                            </div>
+                            <div class="day">
+                                <div class="day_num_gray"><p><small>4</small></p></div>
+                                <div class="icons_diar"></div>
+                            </div>
+                            <div class="day">
+                                <div class="day_num_gray"><p><small>5</small></p></div>
+                                <div class="icons_diar"></div>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+                <div class="budget">
+                    <div class="fleft white">BUDGET £ 1,000.00</div>
+                    <div class="fright green">ACTUAL £500.00</div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="footer">
+    </div>
+</div>
+</body>
+</html>

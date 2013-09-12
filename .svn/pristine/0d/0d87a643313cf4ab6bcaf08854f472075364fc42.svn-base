@@ -1,0 +1,134 @@
+package com.codexsoft.yormoney.controller;
+
+import com.codexsoft.yormoney.dao.RoleDao;
+import com.codexsoft.yormoney.domain.*;
+import com.codexsoft.yormoney.forms.RegistrationForm;
+import com.codexsoft.yormoney.security.SigninUtil;
+import com.codexsoft.yormoney.services.MailService;
+import com.codexsoft.yormoney.services.MemberService;
+import com.codexsoft.yormoney.services.RoleService;
+import com.codexsoft.yormoney.services.UserService;
+import com.codexsoft.yormoney.util.ResultToJSON;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.propertyeditors.CustomDateEditor;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.MediaType;
+import org.springframework.http.ResponseEntity;
+import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
+import org.springframework.security.authentication.encoding.Md5PasswordEncoder;
+import org.springframework.security.authentication.encoding.PasswordEncoder;
+import org.springframework.security.core.context.SecurityContextHolder;
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
+import org.springframework.validation.FieldError;
+import org.springframework.web.bind.WebDataBinder;
+import org.springframework.web.bind.annotation.*;
+import org.springframework.web.servlet.ModelAndView;
+
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
+import javax.validation.Valid;
+import java.security.Principal;
+import java.text.SimpleDateFormat;
+import java.util.*;
+
+@RequestMapping (value = {"/registration" , "/api/registration"})
+@Controller
+public class RegistrationController {
+
+    @Autowired
+    private RoleService roleService;
+
+    @Autowired
+    private UserService userService;
+
+    @Autowired
+    private MemberService memberService;
+
+    @Autowired
+    private MailService mailService;
+
+    @InitBinder
+    public void initBinder(WebDataBinder binder) {
+        SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd" );
+        dateFormat.setLenient(false);
+        binder.registerCustomEditor(Date.class, new CustomDateEditor(dateFormat, false));
+    }
+
+    private String getActivationCode(){
+        String activationCode = "";
+        User user = null;
+        do {
+            UUID uuid = UUID.randomUUID();
+            String uuidStr = uuid.toString().replace("-", "");
+            activationCode = uuidStr.substring(0 , 5) + "-" + uuidStr.substring(5 , 10) + "-" +
+                    uuidStr.substring(10 , 15) + "-" + uuidStr.substring(15 , 20);
+            user = userService.getUserByActivationCode(activationCode);
+        } while ( user != null);
+        return activationCode;
+    }
+
+    @RequestMapping(value= "/sendActivationCode" , method = RequestMethod.POST, consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
+      public @ResponseBody User  sendAC(@RequestBody @Valid User user, BindingResult result) {
+        try {
+            User userC = userService.findByUsername(user.getUsername());
+            if (userC != null)
+                result.addError(new FieldError("user", "message", "A user with that name exists"));
+            userC = userService.findByEmail(user.getEmail());
+
+
+            if (userC != null)
+                result.addError(new FieldError("user", "message", "A user with that email exists"));
+            if (result.hasErrors()) {
+                user.getJsonValues().put("success", false);
+                user.getJsonValues().put("message", "Validation errors");
+                ResultToJSON.trasition(user, result);
+                return user;
+            }
+            String activationCode  = getActivationCode();
+            user.setActivationCode(activationCode);
+
+            int offset = Integer.parseInt(user.getTimezone());
+            String [] timezones = TimeZone.getAvailableIDs();
+
+            for(String name : timezones){
+                if (Math.round(TimeZone.getTimeZone(name).getRawOffset() / 1000 / 60) == offset){
+                    user.setTimezone(name);
+                    break;
+                }
+            }
+
+            user.setRole(roleService.findByRoleName(Roles.Regular.getName()));
+            user.setState(1);
+            Md5PasswordEncoder encoder = new Md5PasswordEncoder();
+            user.setPassword(encoder.encodePassword(user.getPassword(), null));
+
+            userService.saveOrUpdateUser(user);
+            mailService.send(user.getEmail(), activationCode.toUpperCase(), "Activation Code");
+            user.setActivationCode("");
+            user.getJsonValues().put("success", true);
+        } catch(Exception e){
+            user.getJsonValues().put("success", false);
+            user.getJsonValues().put("message", "Exception" );
+        }
+        return user;
+    }
+
+
+    @RequestMapping(value = "/activate" , method = RequestMethod.POST,  consumes =  MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
+    public @ResponseBody User activate(@RequestBody Map<String, String> mapJson){
+        User userDB = userService.getUserByActivationCode(mapJson.get("activationCode").toLowerCase());
+        if (userDB != null) {
+            userDB.getJsonValues().put("success", true);
+            userService.saveOrUpdateUser(userDB);
+            SigninUtil.signin(userDB.getUsername(), roleService.findByRoleName(Roles.Regular.getName()));
+            return userDB;
+        } else{
+            userDB = new User();
+            userDB.getJsonValues().put("success", false);
+            userDB.getJsonValues().put("message" , "this activation code is not valid");
+            return userDB;
+        }
+    }
+}

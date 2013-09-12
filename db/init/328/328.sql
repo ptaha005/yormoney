@@ -1,0 +1,1 @@
+ALTER table user MODIFY postcode varchar(30)
