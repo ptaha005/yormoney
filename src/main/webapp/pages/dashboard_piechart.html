@@ -1,0 +1,193 @@
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta charset="utf-8">
+    <title>Y&ouml;r - Home</title>
+    <link rel="stylesheet" type="text/css" href="css/style.css">
+    <link rel="stylesheet" type="text/css" href="css/selectbox.css">
+    <script src="datatable/jquery.js"></script>
+    <script src="app/lib/jquery.selectbox.js"></script>
+    <script>
+        (function($) {
+            $(function() {
+                $('select').selectbox();
+
+                $('#add').click(function(e) {
+                    $(this).parents('div.section').append('<br /><br /><select><option>-- Выберите --</option><option>Пункт 1</option><option>Пункт 2</option><option>Пункт 3</option><option>Пункт 4</option><option>Пункт 5</option></select>');
+                    $('select').selectbox();
+                    e.preventDefault();
+                })
+
+                $('#add2').click(function(e) {
+                    var options = '';
+                    for (i = 1; i <= 5; i++) {
+                        options += '<option>Option ' + i + '</option>';
+                    }
+                    $(this).parents('div.section').find('select').each(function() {
+                        $(this).append(options);
+                    })
+                    $('select').trigger('refresh');
+                    e.preventDefault();
+                })
+
+                $('#che').click(function(e) {
+                    $(this).parents('div.section').find('option:nth-child(5)').attr('selected', true);
+                    $('select').trigger('refresh');
+                    e.preventDefault();
+                })
+
+            })
+        })(jQuery)
+    </script>
+</head>
+<body>
+<div class="bckg_page">
+    <div id="header">
+        <div id="logo"><a href="#"></a></div>
+        <div id="exit"><a class="sub exit_btn" href="#">EXIT</a></div>
+    </div>
+    <div id="content" class="dashb ">
+        <div class="left_video">
+            <img src="img/diagramm.png" alt="diagramm" class="diagr_video">
+            <a href="#"><img src="img/apps.png" alt="apps" class="app"></a>
+            <a href="#"><img src="img/yoshop.png" alt="yor shop"></a>
+            <a href="#"><img src="img/tescobl.png" alt="tesco" class="tesco"></a>
+        </div>
+        <div class="content video_page">
+            <div class="title_form">
+                <span class="back"><a href="#"><img src="img/back.png" alt="back"></a></span>
+                <span class="video_lib">Y&ouml;r - Home</span>
+                <span class="dash"><a href="#"><img src="img/dash.png" alt="back"></a></span>
+            </div>
+            <div class="bckgr">
+                <div class="dash_content">
+                    <div class="menu center line">
+                        <select>
+                            <option>Viev</option>
+                            <option>Viev</option>
+                            <option>Viev</option>
+                            <option>Viev</option>
+                        </select>
+                        <div class="inline dashboard">
+                            <div class="icon">
+                                <a href="#"><img src="img/btn_add.png"></a>
+                                <a href="#"><div>Add</div></a>
+                                <a href="#"><div>Expenditure</div></a>
+                            </div>
+                            <div class="icon">
+                                <a href="#"><img src="img/btn_hat.png"></a>
+                                <a href="#"><div>Whisper</div></a>
+                                <a href="#"><div>Mode</div></a>
+                            </div>
+                            <div class="icon">
+                                <a href="#"><img src="img/btn_upgr.png"></a>
+                                <a href="#"><div>Upgrade</div></a>
+                                <a href="#"><div>Options</div></a>
+                            </div>
+                            <div class="icon">
+                                <a href="#"><img src="img/btn_video.png"></a>
+                                <a href="#"><div>Video</div></a>
+                                <a href="#"><div>Library</div></a>
+                            </div>
+                            <div class="icon">
+                                <a href="#"><img src="img/btn_print.png"></a>
+                                <a href="#"><div>Print</div></a>
+                            </div>
+                            <div class="icon">
+                                <a href="#"><img src="img/btn_help.png"></a>
+                                <a href="#"><div>Help</div></a>
+                            </div>
+                        </div>
+                        <input class="search fright" type="text" placeholder="Quick Search">
+                    </div>
+                    <div class="dash_limit">
+                        <div class="dashb ">
+                            <h3>Y&ouml;r Budget</h3>
+                        </div>
+                        <div class="info_table">
+                            <div class="dash_left">
+                                <p class="underline">Y&ouml;r Income</p>
+                                <div class="item_line">
+                                    <a href="#" class="item_hover">
+                                        <span class="item_budget">Income</span>
+                                        <span>£1700</span>
+                                    </a>
+                                    <span class="middle inline"><a href="#"><img src="img/plus_blue.png"></a></span>
+                                </div>
+                                <p class="underline ">Y&ouml;r Expenditure</p>
+                                <div class="item_line">
+                                    <a href="#" class="item_hover">
+                                        <span class="item_budget">Home</span>
+                                        <span>£250</span>
+                                    </a>
+                                    <span class="middle inline"><a href="#"><img src="img/plus_blue.png"></a></span>
+                                </div>
+                                <div class="item_line">
+                                    <a href="#" class="item_hover">
+                                        <span class="item_budget">Transport</span>
+                                        <span>£250</span>
+                                    </a>
+                                    <span class="middle inline"><a href="#"><img src="img/plus_blue.png"></a></span>
+                                </div>
+                                <div class="item_line">
+                                    <a href="#" class="item_hover">
+                                        <span class="item_budget">Finances</span>
+                                        <span>£250</span>
+                                    </a>
+                                    <span class="middle inline"><a href="#"><img src="img/plus_blue.png"></a></span>
+                                </div>
+                                <div class="item_line">
+                                    <a href="#" class="item_hover">
+                                        <span class="item_budget">Personal</span>
+                                        <span>£250</span>
+                                    </a>
+                                    <span class="middle inline"><a href="#"><img src="img/plus_blue.png"></a></span>
+                                </div>
+                                <div class="item_line">
+                                    <a href="#" class="item_hover">
+                                        <span class="item_budget">Annual</span>
+                                        <span>£250</span>
+                                    </a>
+                                    <span class="middle inline"><a href="#"><img src="img/plus_blue.png"></a></span>
+                                </div>
+                                <div class="item_line b_b">
+                                    <a href="#" class="item_hover">
+                                        <span class="item_budget">Annual</span>
+                                        <span>£250</span>
+                                    </a>
+                                    <span class="middle inline"><a href="#"><img src="img/plus_blue.png"></a></span>
+                                </div>
+                                <p>Total</p>
+                                <div class="item_line b_b">
+                                    <a href="#" class="item_hover">
+                                        <span class="item_budget">Expenditure</span>
+                                        <span>£1550</span>
+                                    </a>
+                                </div>
+                                <div class="item_line">
+                                    <a href="#" class="item_hover">
+                                        <span class="item_budget">Y&ouml;r Surplus</span>
+                                        <span>£250</span>
+                                    </a>
+                                </div>
+                            </div>
+                            <div class="dash_pie">
+                                <div>
+                                    <img class="piechart" src="img/piechart.jpg">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="banner_video">
+                        <a href="#"><img src="img/banner_legal.png"></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="footer">
+    </div>
+</div>
+</body>
+</html>

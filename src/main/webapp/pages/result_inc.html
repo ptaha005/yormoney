@@ -1,0 +1,104 @@
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta charset="utf-8">
+    <title>Y&ouml;r  - Results</title>
+    <link rel="stylesheet" type="text/css" href="css/style.css">
+    <link rel="stylesheet" type="text/css" href="css/selectbox.css">
+
+    <script src="app/lib/datatable/jquery.js"></script>
+    <script src="app/lib/jquery.selectbox.js"></script>
+    <script src="app/lib/form-elements.js"></script>
+    <script>
+        (function($) {
+            $(function() {
+
+                $('select').selectbox();
+
+                $('#add').click(function(e) {
+                    $(this).parents('div.section').append('<br /><br /><select><option>-- Выберите --</option><option>Пункт 1</option><option>Пункт 2</option><option>Пункт 3</option><option>Пункт 4</option><option>Пункт 5</option></select>');
+                    $('select').selectbox();
+                    e.preventDefault();
+                })
+
+                $('#add2').click(function(e) {
+                    var options = '';
+                    for (i = 1; i <= 5; i++) {
+                        options += '<option>Option ' + i + '</option>';
+                    }
+                    $(this).parents('div.section').find('select').each(function() {
+                        $(this).append(options);
+                    })
+                    $('select').trigger('refresh');
+                    e.preventDefault();
+                })
+
+                $('#che').click(function(e) {
+                    $(this).parents('div.section').find('option:nth-child(5)').attr('selected', true);
+                    $('select').trigger('refresh');
+                    e.preventDefault();
+                })
+
+            })
+        })(jQuery)
+    </script>
+</head>
+<body>
+<div class="results bckg_page" id="content">
+    <div class="content" >
+        <div class="title_form"><span class="logo_sm"></span><span class="tittle title">Y&ouml;r - Results</span></div>
+        <div class="results_cont">
+            <div class="result_left">
+                <div class="radius_l">
+                   <img class="diagramm" src="img/diagramm.png" alt="diagramm"/>
+                   <a href="#"><img class="banner" src="img/tesco.png" alt="tesco - Great saving!"/></a>
+                    <iframe class="banner" width="225" height="155"
+                            src="http://www.youtube.com/embed/XGSy3_Czz8k">
+                    </iframe>
+                </div>
+            </div>
+            <div class="result_right_exp">
+                <div class="result_btns">
+                    <div class="button_top">
+                        <div class="inline"><a class="button_low result">Your Results</a></div>
+                        <div class="inline clear"><a class="button_low option">Your Options</a></div>
+                    </div>
+                    <div class="butts_block">
+                        <div class="inline"><a class="button_sm result_sm">Your <div>Income Vs Expenditure</div></a></div>
+                        <div class="inline"><a class="button_sm income">Your <div>Spending Review</div></a></div>
+                        <div class="inline"><a class="button_sm income">Your <div>Amendments</div></a></div>
+                        <div class="inline"><a class="button_sm income">Your <div>Reality Check</div></a></div>
+                    </div>
+                </div>
+                <div class="result_columns">
+                    <div class="columns center">
+                         <h2>Expenditure Breakdown</h2>
+                         <img src="img/diagr_exp.png">
+                    </div>
+                    <div class="columns center">
+                        <h2>Income V's Expenditure</h2>
+                        <img src="img/exp_cols.png">
+                        <div class="inc_exp">
+                            <span class="inline">
+                                <p>Yor</p>
+                                <p>Income</p>
+                            </span>
+                            <span class="inline">
+                                <p>Yor</p>
+                                <p>Expenditure</p>
+                            </span>
+                        </div>
+                    </div>
+                </div>
+                <div class="clear bott_butts">
+                    <div class="inline fright">
+                        <input type="button" class="btn_action button_next inline" value="NEXT">
+                    </div>
+                </div>
+            </div>
+            <div class="fright"><input type="button" class="button_save button_next" value="SAVE &amp; EXIT"></div>
+        </div>
+    </div>
+</div>
+</body>
+</html>
