@@ -828,7 +828,10 @@ small {
 .columns p {
     text-align: center;
     font-weight: bold;
-    font-size: 1em;
+    font-size: 1.2em;
+}
+.columns img {
+    height: 300px;
 }
 
 #form_registration form .left_form .inputs input.input_field.invalid,
@@ -1396,16 +1399,16 @@ small {
     width: 155px;
 }
 .result {
-    color: #fff;
+    /*color: #fff;*/
     font-size: 20px;
     font-weight: bold;
 
-    background-color: #c2100d;
-    *background-color: #c2100d;
-    background-image: -moz-linear-gradient(top, #fb1801, #c2100d);
-    background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#fb1801), to(#c2100d));
-    background-image: -webkit-linear-gradient(top, #fb1801, #c2100d);
-    background-image: -o-linear-gradient(top, #fb1801, #c2100d);
+    background-color: #649805;
+    *background-color: #649805;
+    background-image: -moz-linear-gradient(top, #acce08, #649805);
+    background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#acce08), to(#649805));
+    background-image: -webkit-linear-gradient(top, #acce08, #649805);
+    background-image: -o-linear-gradient(top, #acce08, #649805);
     background-image: linear-gradient(to bottom, #acce08, #649805);
     background-repeat: repeat-x;
     border: 1px solid #cccccc;
@@ -2233,6 +2236,6 @@ table.table_dash  {
 }
 
 .inc_exp .inline{
-    width: 100px;
+    width: 130px;
 }
 /*dashboard*/

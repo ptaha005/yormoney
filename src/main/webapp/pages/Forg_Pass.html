@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta charset="utf-8">
+    <title>Y&ouml;r - simple better</title>
+    <link rel="stylesheet" type="text/css" href="css/style.css">
+</head>
+<body>
+    <div class="">
+        <div class="login_page " >
+            <div class="logo">
+                <a href="#"><img src="img/logo_login.png" alt="logo"/></a>
+            </div>
+
+            <form class="login_form">
+                <div class="names">
+                    <input type="text" value="" placeholder="Enter yor new password..." id="uname" class="input_field"/>
+                </div>
+
+                <div class="names">
+                    <input type="text" value="" placeholder="Enter yor new password again..." id="name" class="input_field"/>
+                </div>
+
+                <div class="done_btn sub reg_login">Change password</a>
+                </div>
+            </form>
+
+
+            <div class="social">
+                <a href="#" class=""><img src="img/facebook.png" alt="facebook"></a>
+                <a href="#" class="icons"><img src="img/tweet.png" alt="facebook"></a>
+                <a href="#" class="icons"><img src="img/inn.png" alt="facebook"></a>
+                <a href="#" class="icons"><img src="img/youtube.png" alt="facebook"></a>
+            </div>
+
+        </div>
+    </div>
+    <script src="app/lib/datatable/jquery.js"></script>
+    <script>
+        $(function() {
+            $('.reg_action').click(function(){
+                $('.show_email').slideToggle('slow');
+            });
+        });
+    </script>
+</body>
+</html>

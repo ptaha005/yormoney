@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta charset="utf-8">
+    <title>Y&ouml;r - simple better</title>
+    <link rel="stylesheet" type="text/css" href="css/style.css">
+</head>
+<body>
+    <div class="">
+        <div class="login_page " >
+            <div class="logo">
+                <a href="#"><img src="img/logo_login.png" alt="logo"/></a>
+            </div>
+
+            <form class="login_form">
+                <div class="names">
+                    <label for="uname" class="label">Yor Username</label>
+                    <input type="text" value="" id="uname" class="input_field"/>
+                </div>
+
+                <div class="names">
+                    <label for="name" class="label">Yor Password</label>
+                    <input type="text" value="" id="name" class="input_field"/>
+                </div>
+
+                <div class="done_btn sub reg_login ">Login</a>
+                </div>
+            </form>
+
+            <div class="forgot">
+                <div class="forg_uname">
+                    <a href="#" class="done_btn sub reg_forg">Registration</a>
+                </div>
+                <div class="forg_pass">
+                    <a class="sub reg_forg reg_action">Foprgot your password</a>
+                    <div class="show_email">
+                        <input type="text" value="" class="input_field" placeholder="Enter your email"/>
+                        <a class="sub reg_forg done_btn">Send Email</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="social">
+                <a href="#" class=""><img src="img/facebook.png" alt="facebook"></a>
+                <a href="#" class="icons"><img src="img/tweet.png" alt="facebook"></a>
+                <a href="#" class="icons"><img src="img/inn.png" alt="facebook"></a>
+                <a href="#" class="icons"><img src="img/youtube.png" alt="facebook"></a>
+            </div>
+
+        </div>
+    </div>
+    <script src="app/lib/datatable/jquery.js"></script>
+    <script>
+        $(function() {
+            $('.reg_action').click(function(){
+                $('.show_email').slideToggle('fast');
+            });
+        });
+    </script>
+</body>
+</html>
